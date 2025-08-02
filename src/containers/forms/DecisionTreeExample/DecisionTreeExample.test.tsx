@@ -34,7 +34,6 @@ describe("DecisionTreeExample Integration", () => {
     it("should show current state in sidebar", () => {
       render(<ClientDecisionTreeExample />);
 
-      expect(screen.getByText("Current State")).toBeInTheDocument();
       expect(screen.getByText("Controls")).toBeInTheDocument();
       expect(screen.getByText("Restart Session")).toBeInTheDocument();
     });

@@ -14,20 +14,20 @@ export default function Home() {
         </div>
 
         <div className="space-y-12">
-          {/* Multi-Step Form Machine Example */}
-          <section>
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
-              Multi-Step Form State Machine
-            </h2>
-            <FormExample />
-          </section>
-
           {/* Decision Tree State Machine Example */}
           <section>
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
               Decision Tree State Machine
             </h2>
             <DecisionTreeExample />
+          </section>
+
+          {/* Multi-Step Form Machine Example */}
+          <section>
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
+              Multi-Step Form State Machine
+            </h2>
+            <FormExample />
           </section>
         </div>
       </div>

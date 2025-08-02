@@ -326,7 +326,7 @@ const ClientDecisionTreeExample: React.FC = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto p-6">
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6">
@@ -340,22 +340,9 @@ const ClientDecisionTreeExample: React.FC = () => {
 
         {/* Content */}
         <div className="p-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Main Flow */}
-            <div className="lg:col-span-2">{renderCurrentStep()}</div>
-
-            {/* Sidebar */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            {/* Left Sidebar - User Profile & Session History */}
             <div className="space-y-6">
-              {/* Current State */}
-              <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                  Current State
-                </h4>
-                <code className="text-sm text-blue-600 dark:text-blue-400">
-                  {JSON.stringify(value, null, 2)}
-                </code>
-              </div>
-
               {/* User Profile */}
               {context.userProfile.name && (
                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
@@ -390,6 +377,33 @@ const ClientDecisionTreeExample: React.FC = () => {
                 </div>
               )}
 
+              {/* Session History */}
+              {context.responses.length > 0 && (
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                    Session History
+                  </h4>
+                  <div className="space-y-2 max-h-60 overflow-y-auto">
+                    {context.responses.map((response, index) => (
+                      <div key={index} className="text-sm">
+                        <p className="font-medium text-gray-700 dark:text-gray-300">
+                          Q: {response.question}
+                        </p>
+                        <p className="text-gray-600 dark:text-gray-400 ml-2">
+                          A: {response.answer}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Main Form Container */}
+            <div className="lg:col-span-2">{renderCurrentStep()}</div>
+
+            {/* Right Sidebar - Recommendation & Controls */}
+            <div className="space-y-6">
               {/* Recommendation */}
               {context.recommendation && (
                 <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
@@ -421,27 +435,6 @@ const ClientDecisionTreeExample: React.FC = () => {
                         </ul>
                       </div>
                     )}
-                  </div>
-                </div>
-              )}
-
-              {/* Session History */}
-              {context.responses.length > 0 && (
-                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                  <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                    Session History
-                  </h4>
-                  <div className="space-y-2 max-h-60 overflow-y-auto">
-                    {context.responses.map((response, index) => (
-                      <div key={index} className="text-sm">
-                        <p className="font-medium text-gray-700 dark:text-gray-300">
-                          Q: {response.question}
-                        </p>
-                        <p className="text-gray-600 dark:text-gray-400 ml-2">
-                          A: {response.answer}
-                        </p>
-                      </div>
-                    ))}
                   </div>
                 </div>
               )}
