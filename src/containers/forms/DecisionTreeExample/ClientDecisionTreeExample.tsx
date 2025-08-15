@@ -1,15 +1,15 @@
 "use client";
 
-import { useMachine } from "@xstate/react";
-import React, { useState } from "react";
 import {
+  AccountType,
+  IssueType,
+  Priority,
   decisionTreeMachine,
   getAvailableOptions,
   getCurrentQuestion,
-  type AccountType,
-  type IssueType,
-  type Priority,
-} from "../../../machines/decisionTreeMachine";
+} from "@/machines/decisionTreeMachine/index";
+import { useMachine } from "@xstate/react";
+import React, { useState } from "react";
 
 const ClientDecisionTreeExample: React.FC = () => {
   const [state, send] = useMachine(decisionTreeMachine);

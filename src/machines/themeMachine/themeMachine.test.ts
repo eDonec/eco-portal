@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { ActorRefFrom, createActor } from "xstate";
-import { themeMachine } from "./themeMachine";
+import { themeMachine } from ".";
 
 // Mock localStorage for these tests
 const mockLocalStorage = {

@@ -1,5 +1,8 @@
 import { assign, createMachine } from "xstate";
 
+// Storage key for localStorage
+const DECISION_TREE_STORAGE_KEY = "decision-tree-state";
+
 // Exported Types
 export type AccountType = "free" | "premium" | "enterprise";
 export type IssueType = "technical" | "billing" | "general";
@@ -27,6 +30,128 @@ export interface DecisionTreeContext {
   } | null;
   sessionId: string;
 }
+
+// Storage functions for persistence
+export const saveDecisionTreeDataToStorage = (context: DecisionTreeContext) => {
+  if (typeof window !== "undefined") {
+    try {
+      const dataToSave = {
+        context,
+        timestamp: Date.now(),
+      };
+      localStorage.setItem(
+        DECISION_TREE_STORAGE_KEY,
+        JSON.stringify(dataToSave)
+      );
+    } catch (error) {
+      console.warn("Failed to save decision tree data to localStorage:", error);
+    }
+  }
+};
+
+export const loadDecisionTreeDataFromStorage =
+  (): DecisionTreeContext | null => {
+    if (typeof window !== "undefined") {
+      try {
+        const saved = localStorage.getItem(DECISION_TREE_STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          // Optional: Add expiration check (e.g., 24 hours)
+          const isExpired = Date.now() - parsed.timestamp > 24 * 60 * 60 * 1000;
+          if (!isExpired && parsed.context) {
+            // Convert timestamp strings back to Date objects
+            if (parsed.context.responses) {
+              parsed.context.responses = parsed.context.responses.map(
+                (response: {
+                  question: string;
+                  answer: string;
+                  timestamp: string | Date;
+                }) => ({
+                  ...response,
+                  timestamp: new Date(response.timestamp),
+                })
+              );
+            }
+            return parsed.context;
+          } else {
+            // Clean up expired or invalid data
+            localStorage.removeItem(DECISION_TREE_STORAGE_KEY);
+          }
+        }
+      } catch (error) {
+        console.warn(
+          "Failed to load decision tree data from localStorage:",
+          error
+        );
+        // Clean up invalid data
+        localStorage.removeItem(DECISION_TREE_STORAGE_KEY);
+      }
+    }
+    return null;
+  };
+
+export const clearDecisionTreeDataFromStorage = () => {
+  if (typeof window !== "undefined") {
+    try {
+      localStorage.removeItem(DECISION_TREE_STORAGE_KEY);
+    } catch (error) {
+      console.warn(
+        "Failed to clear decision tree data from localStorage:",
+        error
+      );
+    }
+  }
+};
+
+// Helper function to determine the correct state based on context
+export const getStateFromContext = (context: DecisionTreeContext): string => {
+  // If no session started, stay in idle
+  if (!context.sessionId || !context.userProfile.name) {
+    return "idle";
+  }
+
+  // If we have a recommendation, determine which recommendation state
+  if (context.recommendation) {
+    // Check account type and issue combinations to determine the correct end state
+    const { accountType, issueType, priority } = context.userProfile;
+
+    if (accountType === "enterprise") {
+      return "enterpriseSupport";
+    }
+
+    if (priority === "urgent") {
+      return "urgentEscalation";
+    }
+
+    if (accountType === "premium" && issueType === "technical") {
+      return "premiumTechnical.techQuestions";
+    }
+
+    if (issueType === "billing") {
+      return "billingSupport.billingQuestions";
+    }
+
+    return "generalTriage.additionalQuestions";
+  }
+
+  // If user profile is partially filled, determine where we are in collection
+  const { accountType, issueType, priority } = context.userProfile;
+
+  if (!accountType) {
+    return "collectingUserInfo.accountType";
+  }
+
+  if (!issueType) {
+    return "collectingUserInfo.issueType";
+  }
+
+  if (!priority) {
+    return "collectingUserInfo.priority";
+  }
+
+  // If all user info is collected but no recommendation, go to processing
+  return "processing";
+};
 
 export type DecisionTreeEvent =
   | { type: "START"; userInfo: { name: string; email: string } }
@@ -150,12 +275,64 @@ export const decisionTreeMachine = createMachine(
 
     states: {
       idle: {
+        entry: "loadFromStorage",
+        always: [
+          {
+            guard: "hasSavedData",
+            target: "restoring",
+          },
+        ],
         on: {
           START: {
             target: "collectingUserInfo",
-            actions: ["setUserInfo", "addStartResponse"],
+            actions: ["setUserInfo", "addStartResponse", "saveToStorage"],
           },
         },
+      },
+
+      restoring: {
+        always: [
+          {
+            guard: "shouldGoToEnterpriseSupport",
+            target: "enterpriseSupport",
+          },
+          {
+            guard: "shouldGoToUrgentEscalation",
+            target: "urgentEscalation",
+          },
+          {
+            guard: "shouldGoToPremiumTechnical",
+            target: "premiumTechnical.techQuestions",
+          },
+          {
+            guard: "shouldGoToBillingSupport",
+            target: "billingSupport.billingQuestions",
+          },
+          {
+            guard: "shouldGoToGeneralTriage",
+            target: "generalTriage.additionalQuestions",
+          },
+          {
+            guard: "shouldGoToProcessing",
+            target: "processing",
+          },
+          {
+            guard: "shouldGoToAccountType",
+            target: "collectingUserInfo.accountType",
+          },
+          {
+            guard: "shouldGoToIssueType",
+            target: "collectingUserInfo.issueType",
+          },
+          {
+            guard: "shouldGoToPriority",
+            target: "collectingUserInfo.priority",
+          },
+          // Default fallback
+          {
+            target: "idle",
+          },
+        ],
       },
 
       collectingUserInfo: {
@@ -165,7 +342,11 @@ export const decisionTreeMachine = createMachine(
             on: {
               SELECT_ACCOUNT_TYPE: {
                 target: "issueType",
-                actions: ["setAccountType", "addAccountTypeResponse"],
+                actions: [
+                  "setAccountType",
+                  "addAccountTypeResponse",
+                  "saveToStorage",
+                ],
               },
             },
           },
@@ -174,7 +355,11 @@ export const decisionTreeMachine = createMachine(
             on: {
               SELECT_ISSUE_TYPE: {
                 target: "priority",
-                actions: ["setIssueType", "addIssueTypeResponse"],
+                actions: [
+                  "setIssueType",
+                  "addIssueTypeResponse",
+                  "saveToStorage",
+                ],
               },
             },
           },
@@ -183,7 +368,11 @@ export const decisionTreeMachine = createMachine(
             on: {
               SELECT_PRIORITY: {
                 target: "#decisionTree.processing",
-                actions: ["setPriority", "addPriorityResponse"],
+                actions: [
+                  "setPriority",
+                  "addPriorityResponse",
+                  "saveToStorage",
+                ],
               },
             },
           },
@@ -226,7 +415,7 @@ export const decisionTreeMachine = createMachine(
           REQUEST_HUMAN_AGENT: "humanAgent",
           RESTART: {
             target: "#decisionTree.idle",
-            actions: "resetMachine",
+            actions: ["resetMachine", "clearStorage"],
           },
         },
       },
@@ -238,7 +427,7 @@ export const decisionTreeMachine = createMachine(
           REQUEST_HUMAN_AGENT: "humanAgent",
           RESTART: {
             target: "#decisionTree.idle",
-            actions: "resetMachine",
+            actions: ["resetMachine", "clearStorage"],
           },
         },
       },
@@ -250,7 +439,7 @@ export const decisionTreeMachine = createMachine(
           techQuestions: {
             on: {
               ANSWER_QUESTION: {
-                actions: "addQuestionResponse",
+                actions: ["addQuestionResponse", "saveToStorage"],
               },
               COMPLETE: "#decisionTree.completed",
               REQUEST_HUMAN_AGENT: "#decisionTree.humanAgent",
@@ -260,7 +449,7 @@ export const decisionTreeMachine = createMachine(
         on: {
           RESTART: {
             target: "#decisionTree.idle",
-            actions: "resetMachine",
+            actions: ["resetMachine", "clearStorage"],
           },
         },
       },
@@ -272,7 +461,7 @@ export const decisionTreeMachine = createMachine(
           billingQuestions: {
             on: {
               ANSWER_QUESTION: {
-                actions: "addQuestionResponse",
+                actions: ["addQuestionResponse", "saveToStorage"],
               },
               COMPLETE: "#decisionTree.completed",
               REQUEST_HUMAN_AGENT: "#decisionTree.humanAgent",
@@ -282,7 +471,7 @@ export const decisionTreeMachine = createMachine(
         on: {
           RESTART: {
             target: "#decisionTree.idle",
-            actions: "resetMachine",
+            actions: ["resetMachine", "clearStorage"],
           },
         },
       },
@@ -298,10 +487,10 @@ export const decisionTreeMachine = createMachine(
                   // If user mentions keywords that indicate higher priority
                   guard: "containsUrgentKeywords",
                   target: "#decisionTree.urgentEscalation",
-                  actions: "addQuestionResponse",
+                  actions: ["addQuestionResponse", "saveToStorage"],
                 },
                 {
-                  actions: "addQuestionResponse",
+                  actions: ["addQuestionResponse", "saveToStorage"],
                 },
               ],
               COMPLETE: "#decisionTree.completed",
@@ -312,7 +501,7 @@ export const decisionTreeMachine = createMachine(
         on: {
           RESTART: {
             target: "#decisionTree.idle",
-            actions: "resetMachine",
+            actions: ["resetMachine", "clearStorage"],
           },
         },
       },
@@ -323,17 +512,17 @@ export const decisionTreeMachine = createMachine(
           COMPLETE: "completed",
           RESTART: {
             target: "#decisionTree.idle",
-            actions: "resetMachine",
+            actions: ["resetMachine", "clearStorage"],
           },
         },
       },
 
       completed: {
-        entry: "addCompletionResponse",
+        entry: ["addCompletionResponse", "saveToStorage"],
         on: {
           RESTART: {
             target: "#decisionTree.idle",
-            actions: "resetMachine",
+            actions: ["resetMachine", "clearStorage"],
           },
         },
       },
@@ -342,7 +531,7 @@ export const decisionTreeMachine = createMachine(
     on: {
       RESTART: {
         target: "#decisionTree.idle",
-        actions: "resetMachine",
+        actions: ["resetMachine", "clearStorage"],
       },
     },
   },
@@ -515,6 +704,20 @@ export const decisionTreeMachine = createMachine(
         recommendation: null,
         sessionId: "",
       }),
+
+      // Storage actions
+      saveToStorage: ({ context }) => {
+        saveDecisionTreeDataToStorage(context);
+      },
+
+      loadFromStorage: assign(() => {
+        const savedData = loadDecisionTreeDataFromStorage();
+        return savedData || {};
+      }),
+
+      clearStorage: () => {
+        clearDecisionTreeDataFromStorage();
+      },
     },
 
     guards: {
@@ -537,6 +740,82 @@ export const decisionTreeMachine = createMachine(
         ];
         return urgentKeywords.some((keyword) =>
           event.answer.toLowerCase().includes(keyword)
+        );
+      },
+
+      // Guards for state restoration
+      hasSavedData: ({ context }) => {
+        return !!(context.sessionId && context.userProfile.name);
+      },
+
+      shouldGoToEnterpriseSupport: ({ context }) => {
+        return !!(
+          context.recommendation &&
+          context.userProfile.accountType === "enterprise"
+        );
+      },
+
+      shouldGoToUrgentEscalation: ({ context }) => {
+        return !!(
+          context.recommendation && context.userProfile.priority === "urgent"
+        );
+      },
+
+      shouldGoToPremiumTechnical: ({ context }) => {
+        return !!(
+          context.recommendation &&
+          context.userProfile.accountType === "premium" &&
+          context.userProfile.issueType === "technical"
+        );
+      },
+
+      shouldGoToBillingSupport: ({ context }) => {
+        return !!(
+          context.recommendation && context.userProfile.issueType === "billing"
+        );
+      },
+
+      shouldGoToGeneralTriage: ({ context }) => {
+        return !!(
+          context.recommendation &&
+          !(context.userProfile.accountType === "enterprise") &&
+          !(context.userProfile.priority === "urgent") &&
+          !(
+            context.userProfile.accountType === "premium" &&
+            context.userProfile.issueType === "technical"
+          ) &&
+          !(context.userProfile.issueType === "billing")
+        );
+      },
+
+      shouldGoToProcessing: ({ context }) => {
+        return !!(
+          context.userProfile.accountType &&
+          context.userProfile.issueType &&
+          context.userProfile.priority &&
+          !context.recommendation
+        );
+      },
+
+      shouldGoToAccountType: ({ context }) => {
+        return !!(
+          context.sessionId &&
+          context.userProfile.name &&
+          !context.userProfile.accountType
+        );
+      },
+
+      shouldGoToIssueType: ({ context }) => {
+        return !!(
+          context.userProfile.accountType && !context.userProfile.issueType
+        );
+      },
+
+      shouldGoToPriority: ({ context }) => {
+        return !!(
+          context.userProfile.accountType &&
+          context.userProfile.issueType &&
+          !context.userProfile.priority
         );
       },
     },

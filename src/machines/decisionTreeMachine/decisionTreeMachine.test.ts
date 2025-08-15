@@ -4,7 +4,7 @@ import {
   decisionTreeMachine,
   getAvailableOptions,
   getCurrentQuestion,
-} from "./decisionTreeMachine";
+} from ".";
 
 describe("decisionTreeMachine", () => {
   let actor: ReturnType<typeof createActor<typeof decisionTreeMachine>>;

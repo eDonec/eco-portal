@@ -1,6 +1,5 @@
 import ThemeToggle from "@/components/layout/ThemeToggle";
 import DecisionTreeExample from "@/containers/forms/DecisionTreeExample";
-import FormExample from "@/containers/forms/FormExample";
 
 export default function Home() {
   return (
@@ -20,14 +19,6 @@ export default function Home() {
               Decision Tree State Machine
             </h2>
             <DecisionTreeExample />
-          </section>
-
-          {/* Multi-Step Form Machine Example */}
-          <section>
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
-              Multi-Step Form State Machine
-            </h2>
-            <FormExample />
           </section>
         </div>
       </div>
