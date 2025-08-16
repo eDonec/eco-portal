@@ -1,0 +1,27 @@
+const DACard = () => {
+  return (
+    <>
+      <p>
+        Digital Africa est une initiative lancée en 2018 visant à renforcer la
+        capacité des entrepreneurs numériques africains pour concevoir et
+        déployer, à grande échelle, des innovations de rupture au service de
+        l’économie réelle.
+      </p>
+      <ul className="list-disc pl-6 space-y-1">
+        <li>Financement</li>
+        <li>Compétences </li>
+        <li>Communautés</li>
+      </ul>
+      <a
+        href="https://world.businessfrance.fr/afrique-du-nord/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm"
+      >
+        https://world.businessfrance.fr/afrique-du-nord/
+      </a>
+    </>
+  );
+};
+
+export default DACard;
