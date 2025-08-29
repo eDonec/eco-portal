@@ -1,4 +1,11 @@
 import ClientEcoPortalForm from "@/containers/forms/EcoPortalForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Questionnaire",
+  description:
+    "Questionnaire du Portail Économique pour orienter votre projet vers les bons interlocuteurs et dispositifs.",
+};
 
 export default function EcoPortalPage() {
   return (

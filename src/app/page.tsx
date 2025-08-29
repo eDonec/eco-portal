@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Accueil",
+  description:
+    "Transformez votre impact économique : orientez-vous vers les bons services et financements France–Tunisie.",
+};
 
 export default function Home() {
   return (
