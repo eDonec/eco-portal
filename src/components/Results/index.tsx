@@ -106,7 +106,6 @@ export default function Results() {
                                   key={`${keyFor(Comp, idx)}-logo-${i}`}
                                   src={src}
                                   alt={altFrom(src)}
-                                  // Provide larger intrinsic size so browser downscales (avoids blur on DPR displays)
                                   width={256}
                                   height={128}
                                   quality={100}

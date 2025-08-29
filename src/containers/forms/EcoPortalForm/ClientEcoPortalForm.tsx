@@ -1,5 +1,6 @@
 "use client";
 
+import Loader from "@/components/Loader";
 import {
   ecoPortalMachine,
   getEcoOptions,
@@ -291,11 +292,7 @@ export default function ClientEcoPortalForm() {
       )}
 
       {current === EcoFlowState.Completed && (
-        <div className="space-y-3">
-          <div className="text-green-700 dark:text-green-400 font-semibold">
-            Submitting...
-          </div>
-        </div>
+        <Loader label="Chargement des résultats…" />
       )}
     </div>
   );

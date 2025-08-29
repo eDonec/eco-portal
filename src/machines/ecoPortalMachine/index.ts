@@ -22,7 +22,6 @@ import {
   ParticulierNeed,
 } from "./types";
 
-// Mapping utilities
 const financingResultMap: Record<FinancingType, FinancingRecommendation> = {
   [FinancingType.PretSecteurDurable]: FinancingRecommendation.Proparco,
   [FinancingType.SubventionAvance]: FinancingRecommendation.PageFASEP,
@@ -36,7 +35,6 @@ const investResultMap: Record<InvestType, InvestRecommendation> = {
   [InvestType.Tunisie]: InvestRecommendation.Tunisie,
 };
 
-// Helpers for questions and options
 export const getEcoQuestion = (state: EcoFlowState): string => {
   switch (state) {
     case EcoFlowState.Status:
@@ -95,7 +93,6 @@ export const getEcoOptions = (
   }
 };
 
-// Machine
 export const ecoPortalMachine = createMachine(
   {
     /** @xstate-layout N4IgpgJg5mDOIC5RgMYHsAKaBOAXAhgDYDEASgKIDKAKgIKnUDaADALqKgAOasAlrrzQA7DiAAeiACwAmADQgAnogCMAdkmSAdAFYAbMu0AOZtOWTmq3aoC+1+akw4ChTbAK4ArrGKVyAGXIAYWoAfRpaagBVShZ2JBBuPgFhUQkEZWUATgBmTUlVZWzTfUls7WV5JQRDZU0i6UzlXUzpXWZMq1t7dCw8Ik0hMEgffyDQgDlycgARWNFE-kEReLTpQ21NXSN15sNJbUkWypU9Q01LZmzdbMzDVWYD7S7wHqd+weHfAOCQyZnGZRxLg8RYpFaINYbLaGHa3faHOSKFQaXSaQyZB5WUy3VTZSTPBy9ZwDIYQEbfCZTWbSIEJEHJZagVbrTbbPRwg5HJEIcyqPKZAU4+5XfQE159FwfMlfMa-KmMbK0hYM1IQlnQ2F7TmIqrScqaZhbZTMS6GKyqIz4uwvRwSkmfUY-P6zSRK+lLVUISGsmHsrUI44IbTBzRwq7stTSDRi23EqXk2XOxjaN1JD3gr3qtm7eFcqr3LSSXR3Ir6bLMQzSGzWwlvSWkhNO+W6VOgxniNVQ7McgPc9bSUPacsCocacyGGNE94NmVN-6qVsqjPejV+3M6lQm2qldS6XT7bSqW6ZSd1+3Sx2U-6GRfppmdn2a9eBjKHUOmQzZL+qAqH092+NZyvWZMlvMF70zLtfRzbUXwaM5zF0aQTXg8ptGkf9iQAM14IR8CEFBcKgRtQgAMQASXGWhxkCSiAHE5niZU7w7ao1FDSxg3WTJ8nRbIXwOM5kMkGpTDUbRMieGtxWJXCADc4FwEiQkogA1KgmDYeZ3XA1iaj5TJOKMCTeJyQNpGyPkLVUGoh3aYtVAw6TY36dAAFtOEIMBcGGChwgYRjgTTXS0gyHI8gKIomjMMoKj7I8dCsYtJDUExSmyWxrSENAIDgURawlbTgvbNIAFpdEDUqNkFGrasMpzuhclw3HwTx4CYnSSpUbJ0QNDpv3uDIzUDDEtEk5gRNaZRjAsZRMOnSAirbT0Ck0NQOluM09ksq4BJhfktgmyso3yXR5pcHC8IIoilqXCDmlRGR7nWYyeosATDPOEwsnQ5gMhKc7NHkxTbpYtIHryKsKy4odjFUcy7k0PVynUM1DWUaQGptKcXHczzvMWjris9Y0kLWtQDErFLLnQkaTDybQHnRxn9z2TLrCAA */
@@ -120,7 +117,6 @@ export const ecoPortalMachine = createMachine(
             actions: ["setStatus", "addStatusResponse"],
           },
           [EcoPortalEventType.Back]: {
-            // Already at the first step; no-op
             target: EcoFlowState.Status,
           },
         },
@@ -136,7 +132,6 @@ export const ecoPortalMachine = createMachine(
               financingType: () => null,
               investType: () => null,
               recommendations: () => [],
-              // Keep responses or trim last? Keep simple: keep history.
             }),
           },
           [EcoPortalEventType.SelectNeed]: [
@@ -150,7 +145,7 @@ export const ecoPortalMachine = createMachine(
               target: EcoFlowState.Financing,
               actions: ["setNeed", "addNeedResponse"],
             },
-            // Entreprise direct results
+
             {
               guard: "isEntrepriseExporter",
               target: EcoFlowState.Completed,
@@ -194,7 +189,7 @@ export const ecoPortalMachine = createMachine(
                 }),
               ],
             },
-            // Particulier direct results
+
             {
               guard: "isParticulierVisa",
               target: EcoFlowState.Completed,
@@ -330,9 +325,7 @@ export const ecoPortalMachine = createMachine(
     },
 
     on: {
-      [EcoPortalEventType.Back]: {
-        // Default no-op; state-level handlers manage Back
-      },
+      [EcoPortalEventType.Back]: {},
       [EcoPortalEventType.Restart]: {
         target: ".status",
         actions: "resetMachine",
@@ -431,7 +424,6 @@ export const ecoPortalMachine = createMachine(
     },
 
     guards: {
-      // Financing routes
       isEntrepriseFinancement: ({ context, event }) =>
         context.status === EcoStatus.Entreprise &&
         event.type === EcoPortalEventType.SelectNeed &&
@@ -441,7 +433,6 @@ export const ecoPortalMachine = createMachine(
         event.type === EcoPortalEventType.SelectNeed &&
         event.need === ParticulierNeed.Financement,
 
-      // Entreprise direct routes
       isEntrepriseExporter: ({ context, event }) =>
         context.status === EcoStatus.Entreprise &&
         event.type === EcoPortalEventType.SelectNeed &&
@@ -459,7 +450,6 @@ export const ecoPortalMachine = createMachine(
         event.type === EcoPortalEventType.SelectNeed &&
         event.need === EntrepriseNeed.InfoMarche,
 
-      // Particulier direct routes
       isParticulierVisa: ({ context, event }) =>
         context.status === EcoStatus.Particulier &&
         event.type === EcoPortalEventType.SelectNeed &&

@@ -1,9 +1,10 @@
+import Loader from "@/components/Loader";
 import { Suspense } from "react";
 import ClientEcoPortalForm from "./ClientEcoPortalForm";
 
 export default function EcoPortalForm() {
   return (
-    <Suspense fallback={<div className="px-4 py-8">Chargement…</div>}>
+    <Suspense fallback={<Loader label="Chargement du formulaire…" />}>
       <ClientEcoPortalForm />
     </Suspense>
   );
