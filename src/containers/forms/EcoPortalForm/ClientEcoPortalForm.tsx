@@ -26,7 +26,6 @@ import { useMachine } from "@xstate/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-// Storage key for persisting ecoPortal form
 const ECO_PORTAL_STORAGE_KEY = "eco-portal-state";
 
 function saveEcoPortalToStorage(
@@ -72,14 +71,13 @@ function computeBackPersistence(
   current: EcoFlowState,
   ctx: EcoPortalContext
 ): { value: EcoFlowState; context: EcoPortalContext } {
-  // Clone context to avoid mutating React state
   const nextCtx: EcoPortalContext = {
     status: ctx.status,
     need: ctx.need,
     financingType: ctx.financingType,
     investType: ctx.investType,
     recommendations: [],
-    responses: ctx.responses, // keep history as-is
+    responses: ctx.responses,
   };
 
   let value = current;
@@ -131,14 +129,11 @@ export default function ClientEcoPortalForm() {
     typeof value === "string" ? value : (Object.keys(value)[0] as string)
   ) as EcoFlowState;
 
-  // Persist on every transition
   useEffect(() => {
     const normalizedValue = typeof value === "string" ? value : { ...value };
     saveEcoPortalToStorage(context, normalizedValue);
   }, [context, value]);
 
-  // Restore minimal context on client mount honoring the saved step value.
-  // We only replay events up to the saved step to avoid auto-advancing past it.
   useEffect(() => {
     if (!persisted?.context) return;
     const ctx = persisted.context;
@@ -146,17 +141,14 @@ export default function ClientEcoPortalForm() {
       | EcoFlowState
       | undefined;
 
-    // Always start by restoring status if present and step is beyond status
     if (ctx.status) {
       send({ type: EcoPortalEventType.SelectStatus, status: ctx.status });
     }
 
-    // If the saved step is 'need', stop here (don’t send need event)
     if (step === EcoFlowState.Status || step === EcoFlowState.Need) {
       return;
     }
 
-    // For steps beyond 'need', we can replay the need selection safely
     if (ctx.need) {
       send({
         type: EcoPortalEventType.SelectNeed,
@@ -164,12 +156,10 @@ export default function ClientEcoPortalForm() {
       });
     }
 
-    // If the saved step is 'financing' or 'invest', stop before sending final choice
     if (step === EcoFlowState.Financing || step === EcoFlowState.Invest) {
       return;
     }
 
-    // Only when completed, replay the final selection to recompute recommendations
     if (step === EcoFlowState.Completed) {
       if (ctx.financingType) {
         send({
@@ -189,7 +179,6 @@ export default function ClientEcoPortalForm() {
   };
 
   const onBack = () => {
-    // Persist the previous step immediately to survive a quick refresh
     const { value: prevValue, context: nextCtx } = computeBackPersistence(
       current,
       context
@@ -223,7 +212,7 @@ export default function ClientEcoPortalForm() {
   useEffect(() => {
     if (current === EcoFlowState.Completed) {
       const recs = state.context.recommendations || [];
-      // Clear storage to avoid auto-restore loop when coming back
+
       clearEcoPortalStorage();
       const recsParam = encodeURIComponent(JSON.stringify(recs));
       router.push(`/eco-portal/result?recs=${recsParam}`);

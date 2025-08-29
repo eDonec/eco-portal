@@ -1,9 +1,10 @@
-"use client";
+import { Suspense } from "react";
+import ClientEcoPortalForm from "./ClientEcoPortalForm";
 
-import dynamic from "next/dynamic";
-
-const ClientEcoPortalForm = dynamic(() => import("./ClientEcoPortalForm"), {
-  ssr: false,
-});
-
-export default ClientEcoPortalForm;
+export default function EcoPortalForm() {
+  return (
+    <Suspense fallback={<div className="px-4 py-8">Chargement…</div>}>
+      <ClientEcoPortalForm />
+    </Suspense>
+  );
+}

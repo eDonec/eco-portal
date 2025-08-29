@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useMemo, type ComponentType } from "react";
 
-export default function ResultsClient() {
+export default function Results() {
   const searchParams = useSearchParams();
 
   const recommendations = useMemo(() => {
