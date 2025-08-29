@@ -12,12 +12,16 @@ import BPIF from "../cards/BPIF";
 import BrochureDownloadCard from "../cards/BrochureDownload";
 import CCEF from "../cards/CCEF";
 import CF from "../cards/CF";
+import CG from "../cards/CG";
 import EF from "../cards/EF";
+import FIPA from "../cards/FIPA";
 import FTT from "../cards/FTT";
+import FV from "../cards/FV";
 import LCTPMEPMI from "../cards/LCTPMEPMI";
 import Proparco from "../cards/Proparco";
 import SER from "../cards/SER";
 import TFE from "../cards/TFE";
+import TIA from "../cards/TIA";
 
 export type RecommendationKey =
   | FinancingRecommendation
@@ -84,7 +88,7 @@ export const RECOMMENDATION_CONTENT: Record<
   [InvestRecommendation.France]: {
     Cards: [
       {
-        title: "Business France de Tunis ",
+        title: "Business France de Tunis",
         card: BF,
         logos: ["/public/3 V.svg"],
       },
@@ -96,12 +100,23 @@ export const RECOMMENDATION_CONTENT: Record<
     ],
   },
   [InvestRecommendation.Tunisie]: {
-    Cards: [],
+    Cards: [
+      {
+        title: "Tunisia Investment Authority",
+        card: TIA,
+        logos: ["/public/19 V.svg"],
+      },
+      {
+        title: "Foreign Investment Promotion Agency",
+        card: FIPA,
+        logos: ["/public/20 V.svg"],
+      },
+    ],
   },
   [DirectRecommendation.BusinessFrance]: {
     Cards: [
       {
-        title: "Business France de Tunis ",
+        title: "Business France de Tunis",
         card: BF,
         logos: ["/public/3 V.svg"],
       },
@@ -110,7 +125,7 @@ export const RECOMMENDATION_CONTENT: Record<
   [DirectRecommendation.BusinessFranceAnchors]: {
     Cards: [
       {
-        title: "Business France de Tunis ",
+        title: "Business France de Tunis",
         card: BF,
         logos: ["/public/3 V.svg"],
       },
@@ -125,7 +140,7 @@ export const RECOMMENDATION_CONTENT: Record<
         logos: ["/public/1 V.svg"],
       },
       {
-        title: "Business France de Tunis ",
+        title: "Business France de Tunis",
         card: BF,
         logos: ["/public/3 V.svg"],
       },
@@ -145,7 +160,18 @@ export const RECOMMENDATION_CONTENT: Record<
     ],
   },
   [DirectRecommendation.ConsulatFranceVisas]: {
-    Cards: [],
+    Cards: [
+      {
+        title: "Consulat général",
+        card: CG,
+        logos: ["/public/21 V.png"],
+      },
+      {
+        title: "France Visas",
+        card: FV,
+        logos: ["/public/22 V.svg"],
+      },
+    ],
   },
   [DirectRecommendation.ExpertiseFranceGroupeAFD]: {
     Cards: [
@@ -165,7 +191,7 @@ export const RECOMMENDATION_CONTENT: Record<
   [DirectRecommendation.BusinessFranceMarketPlace]: {
     Cards: [
       {
-        title: "Business France de Tunis ",
+        title: "Business France de Tunis",
         card: BF,
         logos: ["/public/3 V.svg"],
       },

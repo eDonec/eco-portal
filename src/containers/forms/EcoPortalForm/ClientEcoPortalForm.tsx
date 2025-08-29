@@ -283,7 +283,7 @@ export default function ClientEcoPortalForm() {
               }`}
               disabled={current === EcoFlowState.Status}
             >
-              <span aria-hidden>←</span> Back
+              <span aria-hidden>←</span> Retour
             </button>
 
             <button
@@ -295,7 +295,7 @@ export default function ClientEcoPortalForm() {
               }`}
               disabled={current === EcoFlowState.Status}
             >
-              ⟲ Reset
+              ⟲ Réinitialiser
             </button>
           </div>
         </div>

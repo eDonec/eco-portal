@@ -18,7 +18,7 @@ export default function Home() {
             href="/eco-portal"
             className="inline-flex items-center gap-2 rounded-lg bg-blue-600 text-white px-6 py-3 text-sm font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
-            Aller vers l&apos;éco portal
+            Aller vers le questionnaire
             <span aria-hidden>→</span>
           </a>
         </div>

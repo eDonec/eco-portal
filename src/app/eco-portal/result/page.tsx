@@ -106,8 +106,10 @@ export default function EcoPortalResultPage() {
                                   key={`${keyFor(Comp, idx)}-logo-${i}`}
                                   src={src}
                                   alt={altFrom(src)}
-                                  width={56}
-                                  height={32}
+                                  // Provide larger intrinsic size so browser downscales (avoids blur on DPR displays)
+                                  width={256}
+                                  height={128}
+                                  quality={100}
                                   className="h-12 sm:h-16 w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
                                 />
                               ))}
