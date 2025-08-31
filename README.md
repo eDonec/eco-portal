@@ -30,26 +30,31 @@ yarn dev
 ```tree
 src/
   app/
-    page.tsx
     layout.tsx
+    page.tsx
     not-found.tsx
-    eco-portal/              # Eco portal form
+    eco-portal/
+      page.tsx                  # Redirects to /eco-portal/status
+      [step]/
+        page.tsx                # Async server route; guards & renders client form
       result/
-        page.tsx             # Results page (server) with Suspense
+        page.tsx                # Results page (server) with Suspense
   components/
     layout/
-      Header/                 # Site header ("Portail Économique")
-      Footer/                 # Footer (copyright)
+      Header/                   # Header ("Portail Économique")
+      Footer/                   # Footer (copyright)
     cards/
-      BrochureDownload/       # PDF download link card
+      BrochureDownload/         # PDF download link card
       ...cards contents
-    RecommendationCard/       # RECOMMENDATION_CONTENT mapping
-    Results/                  # Results display recommended cards
+    RecommendationCard/         # RECOMMENDATION_CONTENT mapping
+    Results/                    # Results display recommended cards
+    Recap/                      # Recap sidebar component
+    Loader/                     # Loader (spinner + customizable label)
   containers/
     forms/
       EcoPortalForm/
-        ClientEcoPortalForm/  # Client-side form
-        index.tsx             # SSR-safe wrapper
+        index.tsx               # Client form UI
+        useEcoPortalForm.ts     # Form logic (hooks/machine wiring)
   machines/
     ecoPortalMachine/
       index.ts                  # State machine + guards/actions
@@ -66,27 +71,25 @@ public/
 - Actions build the `recommendations` array and record a `responses` trail
 - Events: `SelectStatus`, `SelectNeed`, `SelectFinancing`, `SelectInvest`, `Back`, `Restart`
 
-Question & options helpers
-Persistence
+- Question & options helpers from `getEcoQuestion/getEcoOptions`
+- Responses are appended to `context.responses` for the recap
+  trail and are forwarded to the results page via a `resp` query param.
 
-- Server page: `src/app/eco-portal/result/page.tsx`
-
-  - Wraps a client results component in `<Suspense>`
-  - Normalizes logo paths by stripping a leading `/public/`
-  - Renders cards and partner logos using `next/image`
+Recommendations content
 
 - File: `src/components/RecommendationCard/index.ts`
 - Export: `RECOMMENDATION_CONTENT`
-  - value: `{ Cards: { title?: string; card: React.ComponentType; logos: string[] }[] }`
-- Logos
-  - Place assets in `/public`
-  - Reference with a path like `"/1 V.svg"` (served from root)
-  - If an entry uses `"/public/..."` it will be normalized to `/...`
+  - `{ Cards: { title?: string; card: React.ComponentType; logos: string[] }[] }`
+- Results page: `src/components/Results/index.tsx`
+  - Parses `recs` and `resp` from the URL
+  - Renders grouped partner cards and a recap sidebar using the shared `Recap` component
+  - Normalizes logo paths by stripping a leading `/public/`
 
 ## 🧭 Routing & Pages
 
 - Accueil: `src/app/page.tsx` — intro + logos grid (SVGs in `/public`)
-- Questionnaire: `src/app/eco-portal/page.tsx` — wraps `ClientEcoPortalForm`
+- Questionnaire entry: `src/app/eco-portal/page.tsx` — redirects to `/eco-portal/status`
+- Step pages: `src/app/eco-portal/[step]/page.tsx` — server-validated step with async `params`/`searchParams` and Suspense-wrapped client form
 - Résultats: `src/app/eco-portal/result/page.tsx` — Suspense + Results
 - 404: `src/app/not-found.tsx` — friendly French not-found page
 
@@ -94,7 +97,7 @@ Persistence
 
 - Loader: `src/components/Loader` (spinner + customizable label)
 
-## �️ Images & PDFs
+## 🖼️ Images & PDFs
 
 - Files under `/public` are served from root (e.g. `/logo.svg`, not `/public/logo.svg`)
 - Logos are rendered via `next/image` with increased intrinsic size for crispness
@@ -127,6 +130,17 @@ yarn lint
 - Do not link to `/public/...`; use `/<filename>` instead
 - When adding logos, prefer SVGs; for PNGs, keep adequate intrinsic sizes
 - If you add a new recommendation key, update both the machine and `RECOMMENDATION_CONTENT`
+
+## 🧑‍💻 Form UX & Recap
+
+- The form uses a “select then Next” interaction:
+  - Clicking an option highlights it (no immediate navigation)
+  - A “Suivant” button stays disabled until a choice is selected
+  - On Next, the choice is committed to the XState machine and routing proceeds to the next step (or results when complete)
+- The recap sidebar is always visible:
+  - It shows on all steps and on the results page
+  - Layout is consistent: right sidebar on large screens, stacked below on small screens
+  - Results also display the recap using the `resp` query param to persist answers
 
 ## 🤝 Contributing
 

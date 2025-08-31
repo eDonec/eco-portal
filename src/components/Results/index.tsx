@@ -1,30 +1,59 @@
 "use client";
 
+import Recap, { type QAItem } from "@/components/Recap";
 import { RECOMMENDATION_CONTENT } from "@/components/RecommendationCard";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useMemo, type ComponentType } from "react";
+import { type ComponentType } from "react";
 
 export default function Results() {
   const searchParams = useSearchParams();
 
-  const recommendations = useMemo(() => {
-    const raw = searchParams.get("recs");
-    if (!raw) return [] as string[];
+  const recsRaw = searchParams.get("recs");
+  let recommendations: string[] = [];
+  if (recsRaw) {
     try {
-      return JSON.parse(raw) as string[];
+      recommendations = JSON.parse(recsRaw) as string[];
     } catch {
-      return [] as string[];
+      recommendations = [];
     }
-  }, [searchParams]);
+  }
+
+  const respRaw = searchParams.get("resp");
+  let responses: QAItem[] = [];
+  if (respRaw) {
+    try {
+      const parsed = JSON.parse(respRaw) as unknown;
+      if (Array.isArray(parsed)) {
+        const toQA = (x: unknown): QAItem | null => {
+          if (
+            typeof x === "object" &&
+            x !== null &&
+            "question" in x &&
+            "answer" in x
+          ) {
+            const obj = x as Record<string, unknown>;
+            return {
+              question: String(obj.question),
+              answer: String(obj.answer),
+            };
+          }
+          return null;
+        };
+        responses = parsed.map(toQA).filter((x): x is QAItem => x !== null);
+      }
+    } catch {
+      responses = [];
+    }
+  }
 
   const known = recommendations.filter((key) => key in RECOMMENDATION_CONTENT);
   const unknown = recommendations.filter(
     (key) => !(key in RECOMMENDATION_CONTENT)
   );
 
-  const { cards, noCardRecs } = useMemo(() => {
+  const { cards, noCardRecs } = (() => {
     type CardEntry = { Comp: ComponentType; title?: string; logos: string[] };
     const order: ComponentType[] = [];
     const logosMap = new Map<ComponentType, Set<string>>();
@@ -59,7 +88,7 @@ export default function Results() {
     }));
 
     return { cards: result, noCardRecs: noCards };
-  }, [known]);
+  })();
 
   const keyFor = (Comp: ComponentType, idx: number) =>
     (Comp as { displayName?: string; name?: string }).displayName ||
@@ -74,95 +103,101 @@ export default function Results() {
   return (
     <div className="bg-gray-50 dark:bg-gray-900 transition-colors">
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="min-h-[60vh] flex items-center">
-          <div className="max-w-4xl mx-auto w-full p-6 space-y-6 bg-transparent">
-            {recommendations.length === 0 ? (
-              <p className="text-gray-700 dark:text-gray-300">
-                Aucune recommandation trouvée.
-              </p>
-            ) : (
-              <>
-                {cards.length > 0 && (
-                  <div className="flex flex-col gap-5">
-                    {cards.map(({ Comp, title, logos }, idx) => (
-                      <div
-                        key={keyFor(Comp, idx)}
-                        className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm p-6 space-y-3 break-words prose-wrap"
-                      >
-                        {title && (
-                          <h1 className="mb-8 text-2xl font-bold text-gray-900 dark:text-gray-100">
-                            {title}
-                          </h1>
-                        )}
-                        <Comp />
-                        {logos.length > 0 && (
-                          <div>
-                            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-red-400 rounded-full">
-                              Partenaire{logos.length > 1 ? "s" : ""}
-                            </span>
-                            <div className="mt-4 flex flex-wrap items-center gap-3">
-                              {logos.map((src, i) => (
-                                <Image
-                                  key={`${keyFor(Comp, idx)}-logo-${i}`}
-                                  src={src}
-                                  alt={altFrom(src)}
-                                  width={256}
-                                  height={128}
-                                  quality={100}
-                                  className="h-12 sm:h-16 w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
-                                />
-                              ))}
+        <div className="min-h-[60vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            {/* Main first, recap second (right on lg, bottom on small) */}
+            <div className="order-1 lg:order-1 lg:col-span-2 max-w-4xl w-full space-y-6 bg-transparent">
+              {recommendations.length === 0 ? (
+                <p className="text-gray-700 dark:text-gray-300">
+                  Aucune recommandation trouvée.
+                </p>
+              ) : (
+                <>
+                  {cards.length > 0 && (
+                    <div className="flex flex-col gap-5">
+                      {cards.map(({ Comp, title, logos }, idx) => (
+                        <div
+                          key={keyFor(Comp, idx)}
+                          className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm p-6 space-y-3 break-words prose-wrap"
+                        >
+                          {title && (
+                            <h1 className="mb-8 text-2xl font-bold text-gray-900 dark:text-gray-100">
+                              {title}
+                            </h1>
+                          )}
+                          <Comp />
+                          {logos.length > 0 && (
+                            <div>
+                              <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-red-400 rounded-full">
+                                Partenaire{logos.length > 1 ? "s" : ""}
+                              </span>
+                              <div className="mt-4 flex flex-wrap items-center gap-3">
+                                {logos.map((src, i) => (
+                                  <Image
+                                    key={`${keyFor(Comp, idx)}-logo-${i}`}
+                                    src={src}
+                                    alt={altFrom(src)}
+                                    width={308}
+                                    height={154}
+                                    quality={100}
+                                    className="h-[3.6rem] sm:h-[4.8rem] w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
+                                  />
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {unknown.length > 0 && (
-                  <div>
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-4">
-                      Autres recommandations
-                    </h2>
-                    <ul className="list-disc pl-6 mt-2 space-y-1">
-                      {unknown.map((rec, idx) => (
-                        <li
-                          key={idx}
-                          className="text-gray-900 dark:text-gray-100"
-                        >
-                          {rec}
-                        </li>
+                          )}
+                        </div>
                       ))}
-                    </ul>
-                  </div>
-                )}
-                {unknown.length === 0 && noCardRecs.length > 0 && (
-                  <div>
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-4">
-                      Recommandations sans cartes dédiées
-                    </h2>
-                    <ul className="list-disc pl-6 mt-2 space-y-1">
-                      {noCardRecs.map((rec, idx) => (
-                        <li
-                          key={idx}
-                          className="text-gray-900 dark:text-gray-100"
-                        >
-                          {rec}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </>
-            )}
+                    </div>
+                  )}
+                  {unknown.length > 0 && (
+                    <div>
+                      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-4">
+                        Autres recommandations
+                      </h2>
+                      <ul className="list-disc pl-6 mt-2 space-y-1">
+                        {unknown.map((rec, idx) => (
+                          <li
+                            key={idx}
+                            className="text-gray-900 dark:text-gray-100"
+                          >
+                            {rec}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {unknown.length === 0 && noCardRecs.length > 0 && (
+                    <div>
+                      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-4">
+                        Recommandations sans cartes dédiées
+                      </h2>
+                      <ul className="list-disc pl-6 mt-2 space-y-1">
+                        {noCardRecs.map((rec, idx) => (
+                          <li
+                            key={idx}
+                            className="text-gray-900 dark:text-gray-100"
+                          >
+                            {rec}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
+              )}
 
-            <div className="pt-4">
-              <Link
-                href="/eco-portal"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
-              >
-                Revenir au formulaire
-              </Link>
+              <div className="pt-4">
+                <Link
+                  href="/eco-portal"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  Revenir au formulaire
+                </Link>
+              </div>
+            </div>
+            <div className="order-2 lg:order-2">
+              <Recap items={responses} />
             </div>
           </div>
         </div>
