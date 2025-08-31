@@ -93,18 +93,18 @@ export default function StepFormClient({
               )}
             </div>
 
-            <div className="pt-4 flex items-center justify-between">
+            <div className="pt-4 flex items-center gap-2 sm:gap-3">
               <button
                 onClick={() => router.back()}
-                className="inline-flex items-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:border-0 transition-colors"
+                className="inline-flex max-w-full items-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed px-4 py-2 text-sm leading-none font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:border-0 transition-colors appearance-none"
                 disabled={current === EcoFlowState.Status}
               >
-                <span aria-hidden>←</span> Retour
+                Retour
               </button>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto sm:ml-auto justify-end min-w-0">
                 <button
                   onClick={() => router.push("/eco-portal/status")}
-                  className="inline-flex items-center gap-2 rounded-lg border border-red-200 dark:border-red-900 bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-red-600 dark:text-red-300 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed disabled:border-0 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors"
+                  className="inline-flex max-w-full items-center gap-2 rounded-lg border border-red-200 dark:border-red-900 bg-white dark:bg-gray-800 px-4 py-2 text-sm leading-none font-medium text-red-600 dark:text-red-300 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed disabled:border-0 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors appearance-none"
                   disabled={current === EcoFlowState.Status}
                 >
                   ⟲ Réinitialiser
@@ -113,9 +113,9 @@ export default function StepFormClient({
                   type="button"
                   onClick={onNext}
                   disabled={!selected}
-                  className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 text-white disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed"
+                  className="inline-flex max-w-full items-center gap-2 rounded-lg px-4 py-2 text-sm leading-none font-medium bg-blue-500 hover:bg-blue-600 text-white disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed appearance-none"
                 >
-                  Suivant →
+                  Suivant
                 </button>
               </div>
             </div>
