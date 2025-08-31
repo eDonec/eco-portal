@@ -11,8 +11,10 @@ export const metadata: Metadata = {
 
 export default function EcoPortalResultPage() {
   return (
-    <Suspense fallback={<Loader label="Chargement des résultats…" />}>
-      <Results />
-    </Suspense>
+    <>
+      <Suspense fallback={<Loader label="Chargement des résultats…" />}>
+        <Results />
+      </Suspense>
+    </>
   );
 }

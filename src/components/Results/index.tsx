@@ -106,7 +106,10 @@ export default function Results() {
         <div className="min-h-[60vh]">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
             {/* Main first, recap second (right on lg, bottom on small) */}
-            <div className="order-1 lg:order-1 lg:col-span-2 max-w-4xl w-full space-y-6 bg-transparent">
+            <div className="order-2 mt-6 lg:mt-0 lg:order-1 lg:col-span-2 max-w-4xl w-full space-y-6 bg-transparent">
+              <h1 className="text-2xl font-bold text-gray-500 pl-2">
+                Recommandations:
+              </h1>
               {recommendations.length === 0 ? (
                 <p className="text-gray-700 dark:text-gray-300">
                   Aucune recommandation trouvée.
@@ -121,7 +124,7 @@ export default function Results() {
                           className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm p-6 space-y-3 break-words prose-wrap"
                         >
                           {title && (
-                            <h1 className="mb-8 text-2xl font-bold text-gray-900 dark:text-gray-100">
+                            <h1 className="mb-8 text-2xl font-bold text-gray-500">
                               {title}
                             </h1>
                           )}
@@ -140,7 +143,7 @@ export default function Results() {
                                     width={308}
                                     height={154}
                                     quality={100}
-                                    className="h-[3.6rem] sm:h-[4.8rem] w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
+                                    className="sm:h-[4.8rem] w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
                                   />
                                 ))}
                               </div>
@@ -196,7 +199,7 @@ export default function Results() {
                 </Link>
               </div>
             </div>
-            <div className="order-2 lg:order-2">
+            <div className="order-1 lg:order-2">
               <Recap items={responses} />
             </div>
           </div>

@@ -36,9 +36,9 @@ export default function StepFormClient({
   return (
     <div className="bg-gray-50 dark:bg-gray-900 transition-colors">
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start min-h-[60vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
           {/* Main first, recap second (right on lg, bottom on small) */}
-          <div className="order-1 lg:order-1 lg:col-span-2 w-full p-6 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+          <div className="order-2 lg:order-1 lg:col-span-2 w-full p-6 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
             <div className="space-y-4">
               <div className="text-gray-800 dark:text-gray-200 font-medium">
                 {question}
@@ -122,7 +122,7 @@ export default function StepFormClient({
             </div>
           </div>
 
-          <div className="order-2 lg:order-2">
+          <div className="order-1 lg:order-2">
             <Recap items={recapItems} />
           </div>
         </div>
