@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Accueil",
@@ -21,13 +22,13 @@ export default function Home() {
           vers les bons services et financements de l’écosystème France–Tunisie.
         </p>
         <div className="mt-6 flex justify-center">
-          <a
+          <Link
             href="/eco-portal"
             className="inline-flex items-center gap-2 rounded-lg bg-blue-600 text-white px-6 py-3 text-sm font-semibold shadow-sm hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             Aller vers le questionnaire
             <span aria-hidden>→</span>
-          </a>
+          </Link>
         </div>
       </section>
 
