@@ -50,6 +50,8 @@ src/
     Results/                    # Results display recommended cards
     Recap/                      # Recap sidebar component
     Loader/                     # Loader (spinner + customizable label)
+    OptionButton/               # Option button component
+    OptionsList/                # Options list component
   containers/
     forms/
       EcoPortalForm/
