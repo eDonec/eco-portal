@@ -1,5 +1,6 @@
 "use client";
 
+import OptionsList from "@/components/OptionsList";
 import Recap from "@/components/Recap";
 import {
   EntrepriseNeedAnswerLabels,
@@ -10,34 +11,6 @@ import {
 } from "@/machines/ecoPortalMachine/constants";
 import { EcoFlowState, EcoStatus } from "@/machines/ecoPortalMachine/types";
 import useEcoPortalForm from "./useEcoPortalForm";
-
-const renderOptionButtons = (
-  rawOpts: string[],
-  labelFor: (raw: string) => string,
-  selected: string | null,
-  onSelect: (value: string | null) => void
-) => (
-  <div className="grid grid-cols-1 gap-3">
-    {rawOpts.map((raw) => {
-      const isSelected = selected === raw;
-      return (
-        <button
-          type="button"
-          key={raw}
-          onClick={() => onSelect(raw)}
-          className={[
-            "p-4 text-left rounded-lg transition-colors",
-            isSelected
-              ? "border-2 border-blue-400 ring-2 ring-blue-200 bg-blue-50"
-              : "border border-gray-300 hover:bg-gray-50",
-          ].join(" ")}
-        >
-          <span className="font-medium">{labelFor(raw)}</span>
-        </button>
-      );
-    })}
-  </div>
-);
 
 export default function StepFormClient({
   step,
@@ -70,43 +43,54 @@ export default function StepFormClient({
               <div className="text-gray-800 dark:text-gray-200 font-medium">
                 {question}
               </div>
-              {current === EcoFlowState.Status &&
-                renderOptionButtons(
-                  options,
-                  (v) => (StatusAnswerLabels as Record<string, string>)[v] || v,
-                  selected,
-                  onSelect
-                )}
-              {current === EcoFlowState.Need &&
-                renderOptionButtons(
-                  options,
-                  (v) =>
+              {current === EcoFlowState.Status && (
+                <OptionsList
+                  options={options}
+                  labelFor={(v) =>
+                    (StatusAnswerLabels as Record<string, string>)[v] || v
+                  }
+                  selected={selected}
+                  onSelect={onSelect}
+                />
+              )}
+              {current === EcoFlowState.Need && (
+                <OptionsList
+                  options={options}
+                  labelFor={(v) =>
                     (contextStatus === EcoStatus.Entreprise
                       ? (EntrepriseNeedAnswerLabels as Record<string, string>)[
                           v
                         ]
                       : (ParticulierNeedAnswerLabels as Record<string, string>)[
                           v
-                        ]) || v,
-                  selected,
-                  onSelect
-                )}
-              {current === EcoFlowState.Financing &&
-                renderOptionButtons(
-                  options,
-                  (v) =>
+                        ]) || v
+                  }
+                  selected={selected}
+                  onSelect={onSelect}
+                />
+              )}
+
+              {current === EcoFlowState.Financing && (
+                <OptionsList
+                  options={options}
+                  labelFor={(v) =>
                     (FinancingTypeAnswerLabels as Record<string, string>)[v] ||
-                    v,
-                  selected,
-                  onSelect
-                )}
-              {current === EcoFlowState.Invest &&
-                renderOptionButtons(
-                  options,
-                  (v) => (InvestAnswerLabels as Record<string, string>)[v] || v,
-                  selected,
-                  onSelect
-                )}
+                    v
+                  }
+                  selected={selected}
+                  onSelect={onSelect}
+                />
+              )}
+              {current === EcoFlowState.Invest && (
+                <OptionsList
+                  options={options}
+                  labelFor={(v) =>
+                    (InvestAnswerLabels as Record<string, string>)[v] || v
+                  }
+                  selected={selected}
+                  onSelect={onSelect}
+                />
+              )}
             </div>
 
             <div className="pt-4 flex items-center justify-between">
