@@ -27,10 +27,9 @@ const renderOptionButtons = (
           onClick={() => onSelect(raw)}
           className={[
             "p-4 text-left rounded-lg transition-colors",
-            "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100",
             isSelected
-              ? "border-2 border-blue-400 ring-2 ring-blue-200 dark:ring-blue-900/40 bg-blue-50 dark:bg-blue-950/20"
-              : "border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700",
+              ? "border-2 border-blue-400 ring-2 ring-blue-200 bg-blue-50"
+              : "border border-gray-300 hover:bg-gray-50",
           ].join(" ")}
         >
           <span className="font-medium">{labelFor(raw)}</span>
