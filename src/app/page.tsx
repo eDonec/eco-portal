@@ -45,9 +45,9 @@ export default function Home() {
           </div>
           <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-800/60 p-6 shadow-sm">
             <p className="text-gray-800 dark:text-gray-100">
-              La Chambre de Commerce et d&rsquo;Industrie Tuniso-Française
-              (CCITF), le comité Tunisie des Conseillers du Commerce Extérieur
-              de la France (CCEF) et les opérateurs privés référencés complètent
+              Le comité Tunisie des Conseillers du Commerce Extérieur
+              de la France (CCEF), la Chambre de Commerce et d&rsquo;Industrie Tuniso-Française
+              (CCITF) et les opérateurs privés référencés complètent
               ce dispositif. La communauté French Tech Tunis et Digital Africa
               soutiennent plus particulièrement les startups et
               l&rsquo;innovation.
