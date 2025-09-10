@@ -36,7 +36,6 @@ const TFECard = () => {
         </a>
       </p>
       {/* TODO! Add logos */}
-      logos
     </>
   );
 };
