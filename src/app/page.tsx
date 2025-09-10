@@ -1,3 +1,4 @@
+import { BANNER_IMAGES } from "@/constants/banner";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -45,11 +46,11 @@ export default function Home() {
           </div>
           <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-800/60 p-6 shadow-sm">
             <p className="text-gray-800 dark:text-gray-100">
-              Le comité Tunisie des Conseillers du Commerce Extérieur
-              de la France (CCEF), la Chambre de Commerce et d&rsquo;Industrie Tuniso-Française
-              (CCITF) et les opérateurs privés référencés complètent
-              ce dispositif. La communauté French Tech Tunis et Digital Africa
-              soutiennent plus particulièrement les startups et
+              Le Comité Tunisie des Conseillers du Commerce Extérieur de la
+              France (CCEF), la Chambre de Commerce et d&rsquo;Industrie
+              Tuniso-Française (CCITF) et les opérateurs privés référencés
+              complètent ce dispositif. La communauté French Tech Tunis et
+              Digital Africa soutiennent plus particulièrement les startups et
               l&rsquo;innovation.
             </p>
           </div>
@@ -60,21 +61,23 @@ export default function Home() {
         <div className="w-full bg-white py-8">
           <div className="mx-auto px-4">
             <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-6 items-center opacity-90">
-              {Array.from({ length: 18 }).map((_, i) => {
-                const idx = i + 1;
-                const filename = `${idx} V.svg`;
+              {BANNER_IMAGES.map((bannerImage, i) => {
+                // make this image a link from bannerImage.link
                 return (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-center p-2"
-                  >
-                    <Image
-                      src={`/${encodeURIComponent(filename)}`}
-                      alt={`Logo ${idx}`}
-                      width={200}
-                      height={56}
-                      className="h-10 sm:h-12 w-auto object-contain"
-                    />
+                  <div key={i} className="flex items-center justify-center p-2">
+                    <Link
+                      href={bannerImage.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={`/${encodeURIComponent(bannerImage.filename)}`}
+                        alt={bannerImage.alt}
+                        width={200}
+                        height={56}
+                        className="h-10 sm:h-12 w-auto object-contain"
+                      />
+                    </Link>
                   </div>
                 );
               })}

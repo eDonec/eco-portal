@@ -147,7 +147,7 @@ export const RECOMMENDATION_CONTENT: Record<
       {
         title: "Les Conseillers du Commerce Extérieur de la France (CCE)",
         card: CCEF,
-        logos: ["/public/9 V.svg"],
+        logos: ["/public/9 V.png"],
       },
     ],
   },
@@ -212,7 +212,7 @@ export const RECOMMENDATION_CONTENT: Record<
       {
         title: "Les Conseillers du Commerce Extérieur de la France (CCE)",
         card: CCEF,
-        logos: ["/public/9 V.svg"],
+        logos: ["/public/9 V.png"],
       },
     ],
   },
