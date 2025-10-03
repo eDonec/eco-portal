@@ -49,20 +49,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Intro cards */}
-      <section id="acteurs" className="relative max-w-6xl mx-auto px-4 pb-10">
-        <div className="grid md:grid-cols-2 gap-8">
-          <GradientCard>
-            <p className="text-gray-800 dark:text-gray-100 leading-relaxed">
+      {/* Split paragraphs with accents */}
+      <section
+        id="acteurs"
+        className="relative max-w-2xl lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-14"
+      >
+        <div className="grid grid-cols-1 gap-12 md:gap-28">
+          <div className="max-w-4xl">
+            <p className="v-accent-left text-gray-800 dark:text-gray-100 text-xl sm:text-3xl lg:text-4xl font-bold lg:font-semibold 2xl:font-medium leading-snug sm:leading-tight">
               L&rsquo;Ambassade de France en Tunisie comprend plusieurs services
               à vocation économique qui accompagnent les entreprises et les
               pouvoirs publics : le Service Economique Régional, Business
               France, l’Agence Française de Développement, Proparco et Expertise
               France.
             </p>
-          </GradientCard>
-          <GradientCard>
-            <p className="text-gray-800 dark:text-gray-100 leading-relaxed">
+          </div>
+          <div className="max-w-4xl ml-auto">
+            <p className="v-accent-right text-gray-800 dark:text-gray-100 text-xl sm:text-3xl lg:text-4xl font-bold lg:font-semibold 2xl:font-medium leading-snug sm:leading-tight">
               Le Comité Tunisie des Conseillers du Commerce Extérieur de la
               France (CCEF), la Chambre de Commerce et d&rsquo;Industrie
               Tuniso-Française (CCITF) et les opérateurs privés référencés
@@ -70,7 +73,7 @@ export default function Home() {
               Digital Africa soutiennent plus particulièrement les startups et
               l&rsquo;innovation.
             </p>
-          </GradientCard>
+          </div>
         </div>
       </section>
 
