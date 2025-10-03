@@ -353,7 +353,14 @@ body {
   bottom: 0.4rem;
   width: 6px;
   border-radius: 9999px;
-  background: linear-gradient(180deg, #2563eb, #0ea5e9, #7c3aed, #ec4899, #f59e0b);
+  background: linear-gradient(
+    180deg,
+    #2563eb,
+    #0ea5e9,
+    #7c3aed,
+    #ec4899,
+    #f59e0b
+  );
   box-shadow: 0 6px 18px -8px rgba(59, 130, 246, 0.55);
 }
 .v-accent-left:before {
