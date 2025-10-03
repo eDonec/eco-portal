@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-gray-50 dark:bg-gray-900 transition-colors">
+    <header className="dark:bg-gray-900 transition-colors">
       <div className="mx-auto px-4 py-4 sm:py-6">
         <div className="mx-8 grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-3 mb-3 space-y-4">
           <div className="text-center justify-self-center lg:text-start lg:justify-self-start min-w-0">

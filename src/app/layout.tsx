@@ -40,7 +40,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors flex flex-col">
+        <div className="min-h-screen mesh-bg dark:bg-gray-900 transition-colors flex flex-col">
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

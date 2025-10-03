@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { type ComponentType } from "react";
+import GradientCard from "../ui/GradientCard";
 
 export default function Results() {
   const searchParams = useSearchParams();
@@ -101,7 +102,7 @@ export default function Results() {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 transition-colors">
+    <div className="transition-colors">
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="min-h-[60vh]">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
@@ -119,37 +120,36 @@ export default function Results() {
                   {cards.length > 0 && (
                     <div className="flex flex-col gap-5">
                       {cards.map(({ Comp, title, logos }, idx) => (
-                        <div
-                          key={keyFor(Comp, idx)}
-                          className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm p-6 space-y-3 break-words prose-wrap"
-                        >
-                          {title && (
-                            <h1 className="mb-8 text-2xl font-bold text-gray-500">
-                              {title}
-                            </h1>
-                          )}
-                          <Comp />
-                          {logos.length > 0 && (
-                            <div>
-                              <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-red-400 rounded-full">
-                                Partenaire{logos.length > 1 ? "s" : ""}
-                              </span>
-                              <div className="mt-4 flex flex-wrap items-center gap-3">
-                                {logos.map((src, i) => (
-                                  <Image
-                                    key={`${keyFor(Comp, idx)}-logo-${i}`}
-                                    src={src}
-                                    alt={altFrom(src)}
-                                    width={308}
-                                    height={154}
-                                    quality={100}
-                                    className="sm:h-[4.8rem] w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
-                                  />
-                                ))}
+                        <GradientCard key={keyFor(Comp, idx)}>
+                          <div className="space-y-3 break-words prose-wrap">
+                            {title && (
+                              <h1 className="mb-8 text-2xl font-bold text-gray-500">
+                                {title}
+                              </h1>
+                            )}
+                            <Comp />
+                            {logos.length > 0 && (
+                              <div>
+                                <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-white bg-red-400 rounded-full">
+                                  Partenaire{logos.length > 1 ? "s" : ""}
+                                </span>
+                                <div className="mt-4 flex flex-wrap items-center gap-3">
+                                  {logos.map((src, i) => (
+                                    <Image
+                                      key={`${keyFor(Comp, idx)}-logo-${i}`}
+                                      src={src}
+                                      alt={altFrom(src)}
+                                      width={308}
+                                      height={154}
+                                      quality={100}
+                                      className="sm:h-[4.8rem] w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
+                                    />
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-                          )}
-                        </div>
+                            )}
+                          </div>
+                        </GradientCard>
                       ))}
                     </div>
                   )}
@@ -200,7 +200,9 @@ export default function Results() {
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <Recap items={responses} />
+              <GradientCard>
+                <Recap items={responses} />
+              </GradientCard>
             </div>
           </div>
         </div>

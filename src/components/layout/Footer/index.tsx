@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full py-6 bg-gray-50 dark:bg-gray-900 transition-colors">
+    <footer className="w-full py-6 dark:bg-gray-900 transition-colors">
       <div className="max-w-6xl mb-12 mx-auto px-4">
         <p className="text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
           © Tous droits réservés Ambassade de France à Tunis

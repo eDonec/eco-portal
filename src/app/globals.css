@@ -87,3 +87,230 @@ body {
   white-space: normal;
   word-break: break-word;
 }
+
+/* --- Enhanced colorful UI additions --- */
+/* Animated multi-stop gradient text */
+.gradient-text-animated {
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #0ea5e9,
+    #ec4899,
+    #f97316,
+    #2563eb
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 8s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Mesh / radial vignette layered background helper */
+.mesh-bg {
+  position: relative;
+  isolation: isolate;
+}
+.mesh-bg:before,
+.mesh-bg:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+.mesh-bg:before {
+  background: radial-gradient(
+      circle at 15% 20%,
+      rgba(37, 99, 235, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(14, 165, 233, 0.18),
+      transparent 65%
+    ),
+    radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.2), transparent 70%);
+  filter: blur(40px) saturate(130%);
+}
+.mesh-bg:after {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0)
+  );
+  mix-blend-mode: overlay;
+}
+
+/* Gradient ring utility */
+.gradient-ring {
+  position: relative;
+}
+.gradient-ring:before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    #2563eb,
+    #0ea5e9,
+    #7c3aed,
+    #ec4899,
+    #f59e0b
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Card hover glow */
+.hover-glow {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 4px 30px -5px rgba(59, 130, 246, 0.35),
+    0 10px 50px -10px rgba(236, 72, 153, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Shimmer / shine for CTA */
+.shine-button {
+  position: relative;
+  overflow: hidden;
+}
+.shine-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 4.5s ease-in-out infinite;
+}
+@keyframes shine {
+  0% {
+    left: -40%;
+  }
+  55% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+/* Partner logos grayscale to color */
+.logo-fade {
+  filter: contrast(110%) brightness(90%);
+  opacity: 0.75;
+  transition: filter 0.6s ease, opacity 0.6s ease, transform 0.5s ease;
+}
+.logo-fade:hover {
+  filter: contrast(105%) brightness(100%);
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* Gradient divider bar */
+.gradient-bar {
+  height: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #0ea5e9,
+    #7c3aed,
+    #ec4899,
+    #f59e0b
+  );
+  background-size: 200% 100%;
+  animation: gradientShift 12s linear infinite;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 4px 12px -4px rgba(59, 130, 246, 0.6);
+}
+
+/* Glass panel */
+.glass-panel {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 255, 255, 0.65)
+  );
+  backdrop-filter: blur(12px) saturate(160%);
+}
+.dark .glass-panel {
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.85),
+    rgba(30, 41, 59, 0.55)
+  );
+  backdrop-filter: blur(14px) saturate(180%);
+}
+
+/* Utility to clamp paragraph width & add subtle fade edge for wide displays */
+.prose-fade {
+  position: relative;
+}
+.prose-fade:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(
+    to left,
+    hsl(var(--background)),
+    rgba(255, 255, 255, 0)
+  );
+  pointer-events: none;
+}
+.dark .prose-fade:after {
+  background: linear-gradient(
+    to left,
+    hsl(var(--background)),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+/* --- Inspired additions --- */
+/* Subtle dot grid pattern using radial-gradient */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(148,163,184,.35) 1px, transparent 1px);
+  background-size: 14px 14px;
+  background-position: 0 0;
+}
+.dark .dot-grid {
+  background-image: radial-gradient(circle, rgba(71,85,105,.5) 1px, transparent 1px);
+}
+
+/* Hover tilt with gentle lift */
+.tilt-card { transition: transform .4s ease, box-shadow .4s ease; will-change: transform; }
+.tilt-card:hover { transform: translateY(-3px) rotateZ(-.4deg); box-shadow: 0 10px 30px -15px rgba(2,6,23,.35); }
+
+/* Gradient numeral for stats */
+.stat-gradient { background: linear-gradient(90deg,#2563eb,#0ea5e9,#22c55e); -webkit-background-clip:text; background-clip:text; color: transparent; }
