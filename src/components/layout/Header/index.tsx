@@ -23,7 +23,7 @@ export default function Header() {
                     transitionDelay: "0ms",
                     transitionDuration: "600ms",
                   }}
-                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm sm:text-base font-semibold bg-transparent dark:bg-gray-800/70 border dark:border-gray-700 border-blue-600 text-blue-600 dark:text-blue-400 hover:shadow-lg dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-sm"
+                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-base sm:text-lg font-semibold bg-transparent dark:bg-gray-800/70 border dark:border-gray-700 border-blue-600 text-blue-600 dark:text-blue-400 hover:shadow-lg dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-sm"
                 >
                   Accueil
                 </Link>
@@ -35,7 +35,7 @@ export default function Header() {
                     transitionDelay: "0ms",
                     transitionDuration: "600ms",
                   }}
-                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm sm:text-base font-semibold text-white bg-blue-600 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-base sm:text-lg font-semibold text-white bg-blue-600 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                 >
                   Questionnaire
                 </Link>

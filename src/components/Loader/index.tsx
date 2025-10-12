@@ -23,7 +23,7 @@ export default function Loader({ label = "Chargement…" }: { label?: string }) 
             d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
           />
         </svg>
-        <span className="text-sm font-medium">{label}</span>
+  <span className="text-base font-medium">{label}</span>
       </div>
     </div>
   );

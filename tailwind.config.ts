@@ -10,6 +10,11 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      fontSize: {
+        // Increase small text sizes across the app
+        xs: ["0.8125rem", { lineHeight: "1.25rem" }], // 13px, 20px lh
+        sm: ["1rem", { lineHeight: "1.5rem" }], // 16px, 24px lh
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

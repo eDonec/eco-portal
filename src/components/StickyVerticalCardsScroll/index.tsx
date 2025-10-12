@@ -38,7 +38,7 @@ export default function StickyVerticalCardsScroll() {
             return (
               <article
                 key={`sticky-card-${idx}`}
-                className="mx-auto w-full max-w-xs md:max-w-xl lg:max-w-4xl sticky top-24 md:top-32 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
+                className="mr-auto w-11/12 sticky top-24 md:top-32 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
                 style={{ zIndex: cards.length - idx }}
                 aria-labelledby={`svc-title-${idx}`}
               >
@@ -55,7 +55,7 @@ export default function StickyVerticalCardsScroll() {
                     >
                       {card.title}
                     </h3>
-                    <p className="mt-3 text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                    <p className="mt-3 text-lg md:text-xl lg:text-2xl leading-relaxed text-slate-600 dark:text-slate-300">
                       {card.description}
                     </p>
 

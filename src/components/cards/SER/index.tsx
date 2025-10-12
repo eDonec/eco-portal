@@ -31,7 +31,7 @@ const SERCard = () => {
             href="https://www.tresor.economie.gouv.fr/services-aux-entreprises/le-fasep"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-2 py-1 text-xs text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
+            className="inline-block rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-2.5 py-1.5 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
           >
             FASEP
           </a>{" "}
@@ -42,7 +42,7 @@ const SERCard = () => {
         href="https://www.tresor.economie.gouv.fr/Pays/TN"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
+  className="inline-block mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3.5 py-2 text-base text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
       >
         https://www.tresor.economie.gouv.fr/Pays/TN
       </a>

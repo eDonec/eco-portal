@@ -27,7 +27,7 @@ export default function Home() {
           </h1>
         </Reveal>
         <Reveal effect="pop" duration={600} className="h-full">
-          <p className="mt-4 text-center text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="mt-4 text-lg md:text-xl lg:text-2xl font-semibold text-center text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Un portail simple pour orienter entreprises et porteurs de projets
             vers les bons services et financements de l’écosystème
             France–Tunisie.
@@ -100,12 +100,12 @@ export default function Home() {
       <EdgeToCenterLine />
 
       {/* Key figures (inspired) */}
-      <section className="relative max-w-6xl mx-auto px-4 py-10">
+      <section className="relative max-w-6xl mx-auto px-4 py-10 mt-[-30vh]">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <Reveal effect="fade-up" duration={600}>
             <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-4xl font-extrabold stat-gradient">+20</div>
-              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
                 Partenaires et dispositifs
               </p>
             </div>
@@ -113,7 +113,7 @@ export default function Home() {
           <Reveal effect="fade-up" duration={600} delay={80}>
             <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-4xl font-extrabold stat-gradient">4</div>
-              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
                 Étapes de parcours guidé
               </p>
             </div>
@@ -123,7 +123,7 @@ export default function Home() {
               <div className="text-4xl font-extrabold stat-gradient">
                 2 min.
               </div>
-              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
                 Pour obtenir vos recommandations
               </p>
             </div>
@@ -133,7 +133,7 @@ export default function Home() {
 
       {/* Feature grid (inspired) */}
       <section className="relative max-w-6xl mx-auto px-4 pb-16">
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid lg:grid-cols-3 gap-6 items-stretch">
           <Reveal effect="pop" duration={600} className="h-full">
             <GradientCard className="tilt-card h-full">
               <div className="flex items-start gap-3">
@@ -155,7 +155,7 @@ export default function Home() {
                 </span>
                 <div>
                   <h3 className="font-semibold">Rapide et guidé</h3>
-                  <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                  <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
                     Un chemin simple en quelques questions pour cibler vos
                     besoins et vous orienter.
                   </p>
@@ -184,7 +184,7 @@ export default function Home() {
                 </span>
                 <div>
                   <h3 className="font-semibold">Pertinent</h3>
-                  <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                  <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
                     Recommandations adaptées aux entreprises et porteurs de
                     projets, issues d’acteurs reconnus.
                   </p>
@@ -213,7 +213,7 @@ export default function Home() {
                 </span>
                 <div>
                   <h3 className="font-semibold">Mise en relation</h3>
-                  <p className="mt-1 text-sm text-gray-700 dark:text-gray-300">
+                  <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
                     Accès direct aux services et dispositifs pour passer à
                     l’action rapidement.
                   </p>
