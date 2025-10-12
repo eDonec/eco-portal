@@ -1,8 +1,8 @@
+import EdgeToCenterLine from "@/components/EdgeToCenterLine";
 import Reveal from "@/components/motion/Reveal";
+import StickyVerticalCardsScroll from "@/components/StickyVerticalCardsScroll";
 import { GradientCard } from "@/components/ui/GradientCard";
-import { BANNER_IMAGES } from "@/constants/banner";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden transition-colors">
+    <div className="min-h-screen transition-colors">
       {/* Hero */}
 
       <section className="relative max-w-6xl space-y-14 mx-auto px-4 pt-14 pb-12">
@@ -95,33 +95,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Logos */}
-      <section className="w-full">
-        <div className="w-full bg-white/70 dark:bg-gray-900/40 backdrop-blur-sm py-10 border-y border-gray-100 dark:border-gray-800">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-6 items-center">
-              {BANNER_IMAGES.map((bannerImage, i) => (
-                <div key={i} className="flex items-center justify-center p-2">
-                  <Link
-                    href={bannerImage.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
-                  >
-                    <Image
-                      src={`/${encodeURIComponent(bannerImage.filename)}`}
-                      alt={bannerImage.alt}
-                      width={200}
-                      height={56}
-                      className="h-10 sm:h-12 w-auto object-contain logo-fade"
-                    />
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <StickyVerticalCardsScroll />
+      {/* Loading line reveal for Key figures */}
+      <EdgeToCenterLine />
 
       {/* Key figures (inspired) */}
       <section className="relative max-w-6xl mx-auto px-4 py-10">
@@ -258,6 +234,33 @@ export default function Home() {
               en œuvre notamment dans le cadre du Plan France 2030.
             </p>
           </GradientCard>
+        </Reveal>
+        <Reveal
+          className="mt-6 flex justify-center"
+          effect="pop"
+          duration={500}
+          delay={100}
+        >
+          <Link
+            href="/eco-portal"
+            className="transition-all inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-rose-500 text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg   hover:shadow-rose-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+          >
+            <span>Aller vers le questionnaire</span>
+            <span aria-hidden className="inline-flex">
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 10H15" />
+                <path d="M10 5L15 10L10 15" />
+              </svg>
+            </span>
+          </Link>
         </Reveal>
       </section>
     </div>

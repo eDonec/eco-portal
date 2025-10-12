@@ -369,3 +369,12 @@ body {
 .v-accent-right:before {
   right: 0;
 }
+
+/* Hide scrollbar visuals but keep scrolling behavior */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
