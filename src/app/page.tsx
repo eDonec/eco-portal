@@ -154,7 +154,9 @@ export default function Home() {
                   </svg>
                 </span>
                 <div>
-                  <h3 className="font-semibold">Rapide et guidé</h3>
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">
+                    Rapide et guidé
+                  </h3>
                   <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
                     Un chemin simple en quelques questions pour cibler vos
                     besoins et vous orienter.
@@ -183,7 +185,9 @@ export default function Home() {
                   </svg>
                 </span>
                 <div>
-                  <h3 className="font-semibold">Pertinent</h3>
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">
+                    Pertinent
+                  </h3>
                   <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
                     Recommandations adaptées aux entreprises et porteurs de
                     projets, issues d’acteurs reconnus.
@@ -212,7 +216,9 @@ export default function Home() {
                   </svg>
                 </span>
                 <div>
-                  <h3 className="font-semibold">Mise en relation</h3>
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">
+                    Mise en relation
+                  </h3>
                   <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
                     Accès direct aux services et dispositifs pour passer à
                     l’action rapidement.
@@ -228,7 +234,7 @@ export default function Home() {
       <section className="relative max-w-5xl mx-auto px-4 mt-12 pb-16">
         <Reveal effect="pop" duration={600} className="h-full">
           <GradientCard>
-            <p className="text-gray-800 dark:text-gray-100 leading-relaxed">
+            <p className="text-gray-800 font-semibold leading-relaxed">
               Les entreprises en Tunisie trouveront dans ce document la
               présentation des acteurs, les solutions et les financements, mis
               en œuvre notamment dans le cadre du Plan France 2030.

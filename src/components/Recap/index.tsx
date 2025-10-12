@@ -12,7 +12,7 @@ export default function Recap({
   return (
     <aside className="w-full lg:w-auto lg:col-span-1">
       <div className="sticky top-24 rounded-xl  p-4">
-  <h2 className="text-base font-semibold text-gray-700 dark:text-gray-200 mb-3">
+        <h2 className="text-base font-semibold text-gray-700 dark:text-gray-200 mb-3">
           {title}
         </h2>
         {items.length === 0 ? (
