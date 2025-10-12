@@ -7,26 +7,23 @@ const clamp = (v: number, min = 0, max = 1) => Math.min(max, Math.max(min, v));
 const EdgeToCenterLine = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const frame = useRef<number | null>(null);
-  const [progress, setProgress] = useState(0); // 0 -> 1 while scrolling through the section
+  const [progress, setProgress] = useState(0);
   const reachedCenterRef = useRef(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const handleScroll = () => {
       if (frame.current !== null) return;
       frame.current = requestAnimationFrame(() => {
         frame.current = null;
-        const el = sectionRef.current;
-        if (!el) return;
         const rect = el.getBoundingClientRect();
         const viewH =
           window.innerHeight || document.documentElement.clientHeight;
-
-        // Compute document-relative top for the section
         const sectionTopDoc = window.scrollY + rect.top;
         const sectionHeight = rect.height;
-        const maxScrollable = Math.max(1, sectionHeight - viewH); // avoid divide-by-zero
-
-        // How far into the section we've scrolled while it's in view
+        const maxScrollable = Math.max(1, sectionHeight - viewH);
         const scrolledInto = window.scrollY - sectionTopDoc;
         const p = clamp(scrolledInto / maxScrollable);
         setProgress(p);
@@ -39,17 +36,18 @@ const EdgeToCenterLine = () => {
       });
     };
 
-    onScroll(); // initialize on mount and on resize
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    const timeout = setTimeout(() => handleScroll(), 20);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
       if (frame.current) cancelAnimationFrame(frame.current);
+      clearTimeout(timeout);
     };
   }, []);
 
-  // Scale from edges toward the center as progress goes 0 -> 1
   const leftStyle = {
     transform: `scaleX(${progress})`,
     transformOrigin: "left center",
