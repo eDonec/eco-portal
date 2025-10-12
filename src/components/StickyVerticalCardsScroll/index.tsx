@@ -32,13 +32,13 @@ export default function StickyVerticalCardsScroll() {
   ];
   return (
     <section className="relative">
-      <div className="container mx-auto py-24 md:py-32">
+      <div className="mx-auto py-24 md:py-32">
         <div className="relative flex flex-col gap-24 md:gap-32">
           {cards.map((card, idx) => {
             return (
               <article
                 key={`sticky-card-${idx}`}
-                className="mx-auto w-full max-w-3xl md:max-w-4xl sticky top-24 md:top-32 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
+                className="mx-auto w-full max-w-xs md:max-w-xl lg:max-w-4xl sticky top-24 md:top-32 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
                 style={{ zIndex: cards.length - idx }}
                 aria-labelledby={`svc-title-${idx}`}
               >

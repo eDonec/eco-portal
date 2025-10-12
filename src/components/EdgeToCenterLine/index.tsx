@@ -86,7 +86,7 @@ const EdgeToCenterLine = () => {
             className={[
               "pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-8 z-10",
               "px-4 py-2",
-              "text-sm md:text-5xl font-medium text-sky-600 dark:text-slate-200",
+              "w-full text-center text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight gradient-text-animated drop-shadow-sm",
               "transition-all duration-500 ease-out",
               showLabel ? "opacity-100 scale-100" : "opacity-0 scale-95",
             ].join(" ")}
