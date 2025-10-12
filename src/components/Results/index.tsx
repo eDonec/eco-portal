@@ -142,7 +142,7 @@ export default function Results() {
                                       width={308}
                                       height={154}
                                       quality={100}
-                                      className="sm:h-[4.8rem] w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
+                                      className="h-[4.8rem] w-auto object-contain bg-white rounded border border-gray-200 dark:border-gray-700 p-1"
                                     />
                                   ))}
                                 </div>

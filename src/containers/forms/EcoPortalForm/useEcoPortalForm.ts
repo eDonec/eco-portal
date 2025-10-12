@@ -190,6 +190,24 @@ const useEcoPortalForm = ({
 
   const onSelect = (value: string | null) => {
     setSelected(value);
+    if (!value) return;
+    // Advance immediately upon selection based on the current step
+    if (current === EcoFlowState.Status) {
+      onSelectStatus(value as EcoStatus);
+      return;
+    }
+    if (current === EcoFlowState.Need) {
+      onSelectNeed(value as EntrepriseNeed | ParticulierNeed);
+      return;
+    }
+    if (current === EcoFlowState.Financing) {
+      onSelectFinancing(value as FinancingType);
+      return;
+    }
+    if (current === EcoFlowState.Invest) {
+      onSelectInvest(value as InvestType);
+      return;
+    }
   };
 
   return {

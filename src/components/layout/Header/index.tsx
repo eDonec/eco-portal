@@ -15,16 +15,27 @@ export default function Header() {
           </div>
 
           <nav className="justify-self-center lg:justify-self-end">
-            <ul className="flex items-center gap-6 text-lg font-bold text-gray-700 dark:text-gray-300">
+            <ul className="flex items-center gap-3 sm:gap-4">
               <li>
-                <Link href="/" className="hover:text-blue-400 text-blue-500">
+                <Link
+                  href="/"
+                  style={{
+                    transitionDelay: "0ms",
+                    transitionDuration: "600ms",
+                  }}
+                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm sm:text-base font-semibold bg-transparent dark:bg-gray-800/70 border dark:border-gray-700 border-blue-600 text-blue-600 dark:text-blue-400 hover:shadow-lg dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-sm"
+                >
                   Accueil
                 </Link>
               </li>
               <li>
                 <Link
                   href="/eco-portal"
-                  className="hover:text-blue-400 text-blue-500"
+                  style={{
+                    transitionDelay: "0ms",
+                    transitionDuration: "600ms",
+                  }}
+                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm sm:text-base font-semibold text-white bg-blue-600 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                 >
                   Questionnaire
                 </Link>

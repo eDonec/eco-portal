@@ -41,7 +41,7 @@ export default function Home() {
         >
           <Link
             href="/eco-portal"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-rose-500 text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg shadow-blue-600/30 hover:shadow-rose-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 transition-all"
+            className="transition-all inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-rose-500 text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg   hover:shadow-rose-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
           >
             <span>Aller vers le questionnaire</span>
             <span aria-hidden className="inline-flex">
@@ -127,7 +127,7 @@ export default function Home() {
       <section className="relative max-w-6xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <Reveal effect="fade-up" duration={600}>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card">
+            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-4xl font-extrabold stat-gradient">+20</div>
               <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
                 Partenaires et dispositifs
@@ -135,7 +135,7 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={80}>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card">
+            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-4xl font-extrabold stat-gradient">4</div>
               <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
                 Étapes de parcours guidé
@@ -143,9 +143,9 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={160}>
-            <div className="rounded-xl border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card">
+            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-4xl font-extrabold stat-gradient">
-                Quelques min.
+                2 min.
               </div>
               <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
                 Pour obtenir vos recommandations
