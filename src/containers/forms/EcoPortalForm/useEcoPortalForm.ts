@@ -54,8 +54,7 @@ const useEcoPortalForm = ({
       const n = need as EntrepriseNeed | ParticulierNeed;
       send({ type: EcoPortalEventType.SelectNeed, need: n });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status, need]);
+  }, [status, need, send]);
 
   const goTo = (
     s: EcoStatus,
@@ -135,14 +134,29 @@ const useEcoPortalForm = ({
   const options = getEcoOptions(current, state.context) as string[];
   const question = getEcoQuestion(current);
 
-  const recapItems: QAItem[] = (state.context.responses || []).map((r) => ({
-    question: r.question,
-    answer: r.answer,
-  }));
+  const stepOrder: EcoFlowState[] = [
+    EcoFlowState.Status,
+    EcoFlowState.Need,
+    EcoFlowState.Financing,
+    EcoFlowState.Invest,
+  ];
+  const currentIndex = stepOrder.indexOf(current);
+  const recapItems: QAItem[] = (state.context.responses || [])
+    .filter((r) => {
+      const responseIndex = stepOrder.findIndex((flowStep) => {
+        const q = getEcoQuestion(flowStep);
+        return q === r.question;
+      });
+
+      return responseIndex > -1 && responseIndex < currentIndex;
+    })
+    .map((r) => ({
+      question: r.question,
+      answer: r.answer,
+    }));
 
   const [selected, setSelected] = useState<string | null>(null);
 
-  // Initialize selection from existing context for the current step
   useEffect(() => {
     switch (current) {
       case EcoFlowState.Status:
@@ -191,7 +205,7 @@ const useEcoPortalForm = ({
   const onSelect = (value: string | null) => {
     setSelected(value);
     if (!value) return;
-    // Advance immediately upon selection based on the current step
+
     if (current === EcoFlowState.Status) {
       onSelectStatus(value as EcoStatus);
       return;
