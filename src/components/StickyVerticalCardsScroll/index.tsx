@@ -38,8 +38,8 @@ export default function StickyVerticalCardsScroll() {
             return (
               <article
                 key={`sticky-card-${idx}`}
-                className="mr-auto w-11/12 sticky top-24 md:top-32 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
-                style={{ zIndex: cards.length - idx }}
+                className="mx-auto w-11/12 sticky top-24 md:top-32 rounded-2xl border border-black/10 dark:border-white/10 bg-sky-50 dark:bg-neutral-900/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
+                style={{ zIndex: cards.length + idx }}
                 aria-labelledby={`svc-title-${idx}`}
               >
                 <div className="relative">
@@ -58,16 +58,16 @@ export default function StickyVerticalCardsScroll() {
                     <p className="mt-3 text-lg md:text-xl lg:text-2xl leading-relaxed text-slate-600 dark:text-slate-300">
                       {card.description}
                     </p>
-
-                    <div className="mt-6 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3">
+                    <div className="mt-6 grid grid-cols-3 lg:grid-cols-6 gap-1">
                       {card.logos.map((logo, logoIdx) => (
                         <Image
                           key={logoIdx}
                           src={`/${logo.filename}`}
                           alt={`Logo ${logoIdx + 1}`}
-                          width={48}
-                          height={48}
-                          className="h-12 w-12 object-contain rounded-md border border-black/10 dark:border-white/10 bg-white/60 dark:bg-neutral-800/60 p-2 transition-all duration-200 hover:shadow"
+                          width={96}
+                          height={96}
+                          quality={100}
+                          className="h-24 w-32 object-contain rounded-md border mx-auto border-black/10 dark:border-white/10 bg-white/60 dark:bg-neutral-800/60 p-1 transition-all duration-200 hover:shadow"
                         />
                       ))}
                     </div>

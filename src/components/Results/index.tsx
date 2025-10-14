@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { type ComponentType } from "react";
 import GradientCard from "../ui/GradientCard";
+import SmallResourceCards from "./SmallResourceCards";
 
 export default function Results() {
   const searchParams = useSearchParams();
@@ -190,7 +191,8 @@ export default function Results() {
                 </>
               )}
 
-              <div className="pt-4">
+              <SmallResourceCards />
+              <div className="pt-8">
                 <Link
                   href="/eco-portal"
                   className="text-blue-600 dark:text-blue-400 hover:underline"
