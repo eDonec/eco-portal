@@ -23,9 +23,10 @@ const EdgeToCenterLine = () => {
           window.innerHeight || document.documentElement.clientHeight;
         const sectionTopDoc = window.scrollY + rect.top;
         const sectionHeight = rect.height;
+        console.log(sectionHeight);
         const maxScrollable = Math.max(1, sectionHeight - viewH);
         const scrolledInto = window.scrollY - sectionTopDoc;
-        const p = clamp(scrolledInto / maxScrollable);
+        const p = clamp((scrolledInto * 1.25) / maxScrollable);
         setProgress(p);
         if (reachedCenterRef.current && p < 0.98) {
           reachedCenterRef.current = false;
@@ -62,14 +63,18 @@ const EdgeToCenterLine = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[200vh]"
+      className="relative min-h-[170vh] mt-[-40vh]"
       aria-label="Edge to center line progress"
     >
       {/* Sticky pin: content stays while you scroll through this section */}
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="relative w-full h-full">
           {/* Left half */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 h-[4px] w-1/2 overflow-hidden">
+          <div
+            className={`absolute left-0 top-1/2 ${
+              showLabel ? "opacity-0" : "opacity-100"
+            } transition-all -translate-y-1/2 h-[4px] w-1/2 overflow-hidden`}
+          >
             <div
               className="h-full w-full bg-sky-600 dark:bg-white"
               style={leftStyle}
@@ -92,7 +97,11 @@ const EdgeToCenterLine = () => {
           >
             Les Chiffres-Clés
           </div>
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[4px] w-1/2 overflow-hidden">
+          <div
+            className={`absolute right-0 top-1/2 ${
+              showLabel ? "opacity-0" : "opacity-100"
+            } transition-all -translate-y-1/2 h-[4px] w-1/2 overflow-hidden`}
+          >
             <div
               className="h-full w-full bg-sky-600 dark:bg-white"
               style={rightStyle}
