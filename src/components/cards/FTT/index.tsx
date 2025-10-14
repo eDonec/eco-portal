@@ -1,4 +1,7 @@
+import { useModal } from "@/components/ui/ModalContext";
+
 const FTTCard = () => {
+  const { openModal } = useModal();
   return (
     <>
       <p>
@@ -13,9 +16,11 @@ const FTTCard = () => {
       </p>
       <a
         href="http://www.lafrenchtech-tunis.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
+        onClick={(e) => {
+          e.preventDefault();
+          openModal("http://www.lafrenchtech-tunis.com/");
+        }}
+        className="inline-block cursor-pointer mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
       >
         http://www.lafrenchtech-tunis.com/
       </a>

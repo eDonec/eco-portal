@@ -17,13 +17,13 @@ Install & run
 yarn install
 ```
 
-2. Start the dev server:
+1. Start the dev server:
 
 ```bash
 yarn dev
 ```
 
-3. Open <http://localhost:3000>
+1. Open <http://localhost:3000>
 
 - Accessible French UI with proper metadata and a global 404 page
 
@@ -153,3 +153,34 @@ yarn lint
 ---
 
 Made with Next.js, XState, Tailwind, and TypeScript.
+
+## 🪟 Modal (Iframe) System
+
+An application-wide iframe modal is available to preview external resources without navigating away.
+
+Usage inside a component:
+
+```tsx
+import { useModal } from "@/components/ui/ModalContext";
+
+export function ExampleButton() {
+  const { openModal } = useModal();
+  return (
+    <button
+      onClick={() => openModal("https://example.com")}
+      className="px-3 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-500"
+    >
+      Ouvrir exemple
+    </button>
+  );
+}
+```
+
+Features:
+
+- Closes on overlay click, ESC, or the × button
+- Focus trap + restore to trigger element
+- Body scroll locked while open
+- Responsive: full height on small screens, centered panel on larger screens
+
+If you add cards with links you want intercepted, replace their `<a target="_blank">` handler with a call to `openModal(url)` and optionally keep a context menu accessible version.

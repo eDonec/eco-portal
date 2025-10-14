@@ -1,4 +1,17 @@
+import { useModal } from "@/components/ui/ModalContext";
+
 const SERCard = () => {
+  const { openModal } = useModal();
+  const openFASEP = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openModal(
+      "https://www.tresor.economie.gouv.fr/services-aux-entreprises/le-fasep"
+    );
+  };
+  const openCountry = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openModal("https://www.tresor.economie.gouv.fr/Pays/TN");
+  };
   return (
     <>
       <p>
@@ -29,9 +42,8 @@ const SERCard = () => {
           Gestion du{" "}
           <a
             href="https://www.tresor.economie.gouv.fr/services-aux-entreprises/le-fasep"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-2.5 py-1.5 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
+            onClick={openFASEP}
+            className="inline-block cursor-pointer rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-2.5 py-1.5 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
           >
             FASEP
           </a>{" "}
@@ -40,9 +52,8 @@ const SERCard = () => {
       </ul>
       <a
         href="https://www.tresor.economie.gouv.fr/Pays/TN"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3.5 py-2 text-base text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
+        onClick={openCountry}
+        className="inline-block mt-2 cursor-pointer rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3.5 py-2 text-base text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
       >
         https://www.tresor.economie.gouv.fr/Pays/TN
       </a>

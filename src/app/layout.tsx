@@ -1,5 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import Modal from "@/components/ui/Modal";
+import { ModalProvider } from "@/components/ui/ModalContext";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -40,11 +42,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-screen mesh-bg dark:bg-gray-900 transition-colors flex flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        <ModalProvider>
+          <div className="min-h-screen mesh-bg dark:bg-gray-900 transition-colors flex flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+          <Modal />
+        </ModalProvider>
       </body>
     </html>
   );
