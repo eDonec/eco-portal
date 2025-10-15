@@ -5,12 +5,14 @@ import { RECOMMENDATION_CONTENT } from "@/components/RecommendationCard";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { type ComponentType } from "react";
+import { useState, type ComponentType } from "react";
 import GradientCard from "../ui/GradientCard";
 import SmallResourceCards from "./SmallResourceCards";
 
 export default function Results() {
   const searchParams = useSearchParams();
+  const [hasAdditionalResourcesState, setHasAdditionalResourcesState] =
+    useState(false);
 
   const recsRaw = searchParams.get("recs");
   let recommendations: string[] = [];
@@ -72,11 +74,13 @@ export default function Results() {
         noCards.push(key);
         continue;
       }
-      for (const { title, card, logos } of list) {
+      for (const { title, card, logos, hasAdditionalResources } of list) {
         if (!logosMap.has(card)) {
           logosMap.set(card, new Set());
           order.push(card);
           if (title) titleMap.set(card, title);
+          if (hasAdditionalResources && !hasAdditionalResourcesState)
+            setHasAdditionalResourcesState(true);
         }
         const set = logosMap.get(card)!;
         for (const src of logos ?? []) set.add(normalize(src));
@@ -191,7 +195,7 @@ export default function Results() {
                 </>
               )}
 
-              <SmallResourceCards />
+              {hasAdditionalResourcesState && <SmallResourceCards />}
               <div className="pt-8">
                 <Link
                   href="/eco-portal"

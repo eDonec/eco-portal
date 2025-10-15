@@ -33,6 +33,7 @@ export interface RecommendationContent {
     title?: string;
     card: React.ComponentType;
     logos: string[];
+    hasAdditionalResources?: boolean;
   }[];
 }
 
@@ -46,8 +47,14 @@ export const RECOMMENDATION_CONTENT: Record<
         title: "L'Agence Française de Développement",
         card: AFD,
         logos: ["/public/7 V.svg"],
+        hasAdditionalResources: true,
       },
-      { title: "Proparco", card: Proparco, logos: ["/public/4 V.svg"] },
+      {
+        title: "Proparco",
+        card: Proparco,
+        logos: ["/public/4 V.svg"],
+        hasAdditionalResources: true,
+      },
     ],
   },
   [FinancingRecommendation.PageFASEP]: {
@@ -180,6 +187,7 @@ export const RECOMMENDATION_CONTENT: Record<
         title: "L'Agence Française de Développement",
         card: AFD,
         logos: ["/public/7 V.svg"],
+        hasAdditionalResources: true,
       },
     ],
   },
