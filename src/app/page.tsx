@@ -15,7 +15,6 @@ export default function Home() {
   return (
     <div className="min-h-screen transition-colors">
       {/* Hero */}
-      <section className="hidden">Hello test</section>
       <section className="relative max-w-6xl space-y-14 mx-auto px-4 pt-14 pb-12">
         <Reveal
           className="mx-auto max-w-4xl text-center"
