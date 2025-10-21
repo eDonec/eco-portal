@@ -6,33 +6,6 @@ on:
       - master
 
 jobs:
-  verify-token-hash:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Compare SHA256 of VERCEL_TOKEN against known hashes
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          if [ -z "$VERCEL_TOKEN" ]; then
-            echo "VERCEL_TOKEN is not set; skipping hash comparison."
-            exit 0
-          fi
-          HASH=$(printf '%s' "$VERCEL_TOKEN" | sha256sum | awk '{print $1}')
-          echo "Comparing VERCEL_TOKEN SHA256 to provided hashes..."
-          expected_hashes=(
-            01541c6d9d4d43ce05252a8e1041d34ca66cff891938a5973d97bfd69499ca96
-            dec18cf93d66381c6feb04ee07e9487e2640ea2371bc17c55bc74d18b9c5cad9
-            234fe54d53097f5e900899ed62e9c92e302eb2cbaf90f9d5880c4420f32801be
-            9725fdc6f2421d7a4b214871d0648bb07fae6d0af6a3f0a34ec3b38c110c72a1
-          )
-          for h in "${expected_hashes[@]}"; do
-            if [ "$HASH" = "$h" ]; then
-              echo "Match with $h: true"
-            else
-              echo "Match with $h: false"
-            fi
-          done
-
   deploy:
     runs-on: ubuntu-latest
     steps:
