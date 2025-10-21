@@ -1,16 +1,25 @@
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function Header() {
   return (
     <header className="dark:bg-gray-900 transition-colors">
       <div className="mx-auto px-4 py-4 sm:py-6">
         <div className="mx-8 grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-3 mb-3 space-y-4">
-          <div className="text-center justify-self-center lg:text-start lg:justify-self-start min-w-0">
+          <div className="flex items-center gap-3 text-center justify-self-center lg:text-start lg:justify-self-start min-w-0">
+            <Image
+              src={`/${encodeURIComponent("Marianne.svg")}`}
+              alt={`Logo Marianne`}
+              width={200}
+              height={56}
+              className="h-10 sm:h-12 w-auto object-contain"
+            />
             <Link
               href="/"
-              className="block text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-blue-500 drop-shadow-xl"
+              className="block text-sm sm:text-lg md:text-xl font-bold leading-tight text-blue-500 drop-shadow-xl"
             >
-              Portail Économique
+              Portail web d’orientation des acteurs économiques de la relation franco-tunisienne
             </Link>
           </div>
 
