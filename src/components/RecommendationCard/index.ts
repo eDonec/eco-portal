@@ -232,7 +232,7 @@ export const RECOMMENDATION_CONTENT: Record<
       {
         title: "Le Service Economique Régional (SER)",
         card: SER,
-        logos: ["/public/1 V.svg"],
+        logos: ["/public/1.png"],
       },
       {
         title: "Les Conseillers du Commerce Extérieur de la France (CCE)",

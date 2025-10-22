@@ -1,7 +1,4 @@
-import { useModal } from "@/components/ui/ModalContext";
-
 const FV = () => {
-  const { openModal } = useModal();
   return (
     <>
       <p>Le site officiel des visas pour la France.</p>
@@ -12,10 +9,6 @@ const FV = () => {
       </p>
       <a
         href="https://france-visas.gouv.fr/"
-        onClick={(e) => {
-          e.preventDefault();
-          openModal("https://france-visas.gouv.fr/");
-        }}
         className="inline-block cursor-pointer mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm"
       >
         https://france-visas.gouv.fr/

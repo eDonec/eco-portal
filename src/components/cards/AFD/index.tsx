@@ -1,7 +1,4 @@
-import { useModal } from "@/components/ui/ModalContext";
-
 const AFDCard = () => {
-  const { openModal } = useModal();
   return (
     <>
       <p>
@@ -18,10 +15,6 @@ const AFDCard = () => {
       </ul>
       <a
         href="https://afd.dgmarket.com"
-        onClick={(e) => {
-          e.preventDefault();
-          openModal("https://afd.dgmarket.com");
-        }}
         className="inline-block cursor-pointer mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm"
       >
         https://afd.dgmarket.com

@@ -1,7 +1,4 @@
-import { useModal } from "@/components/ui/ModalContext";
-
 const LCTPMEPMICard = () => {
-  const { openModal } = useModal();
   return (
     <>
       <p>
@@ -19,24 +16,12 @@ const LCTPMEPMICard = () => {
         voir:
         <a
           href="https://www.tresor.economie.gouv.fr/Articles/2021/04/16/une-ligne-de-credit-attractive-pour-soutenir-les-pme-et-pmi-tunisiennes"
-          onClick={(e) => {
-            e.preventDefault();
-            openModal(
-              "https://www.tresor.economie.gouv.fr/Articles/2021/04/16/une-ligne-de-credit-attractive-pour-soutenir-les-pme-et-pmi-tunisiennes"
-            );
-          }}
           className="inline-block cursor-pointer ml-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-2.5 py-1.5 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
         >
           Ligne de crédit
         </a>
         <a
           href="https://www.tresor.economie.gouv.fr/services-aux-entreprises/le-pret-du-tresor"
-          onClick={(e) => {
-            e.preventDefault();
-            openModal(
-              "https://www.tresor.economie.gouv.fr/services-aux-entreprises/le-pret-du-tresor"
-            );
-          }}
           className="inline-block cursor-pointer ml-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-2.5 py-1.5 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
         >
           Pret du Trésor
