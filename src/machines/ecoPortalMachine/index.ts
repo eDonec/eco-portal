@@ -183,8 +183,8 @@ export const ecoPortalMachine = createMachine(
                 "addNeedResponse",
                 assign({
                   recommendations: () => [
-                    DirectRecommendation.SER_BF_CCEF,
                     DirectRecommendation.BrochureEcoEquipeFranceTN,
+                    DirectRecommendation.SER_BF_CCEF,
                   ],
                 }),
               ],
@@ -238,8 +238,8 @@ export const ecoPortalMachine = createMachine(
                 "addNeedResponse",
                 assign({
                   recommendations: () => [
-                    DirectRecommendation.SER_CCEF,
                     DirectRecommendation.BrochureEcoEquipeFranceTN,
+                    DirectRecommendation.SER_CCEF,
                   ],
                 }),
               ],

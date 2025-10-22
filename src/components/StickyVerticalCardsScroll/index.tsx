@@ -12,22 +12,22 @@ export type VerticalCard = {
 export default function StickyVerticalCardsScroll() {
   const cards: VerticalCard[] = [
     {
-      title: "Partenaires",
+      title: "Services & opérateurs",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "L'équipe économique France en Tunisie comprend plusieurs services et opérateurs à vocation économique qui accompagnent les entreprises et les pouvoirs publics : le Service Economique Régional, Business France, l’Agence Française de Développement, Proparco et Expertise France. (Le bureau régional de BPI France est basé à Casablanca).",
       logos: BANNER_IMAGES.slice(0, 6),
     },
     {
-      title: "Marques",
+      title: "Partenaires",
       description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      logos: BANNER_IMAGES.slice(6, 12),
+        "Le Comité Tunisie des Conseillers du Commerce Extérieur de la France (CCEF), la Chambre de Commerce et d’Industrie Tuniso-Française (CCITF) et les opérateurs privés référencés complètent ce dispositif.",
+      logos: BANNER_IMAGES.slice(6, 9),
     },
     {
-      title: "Institutions",
+      title: "Marques France, labels et initiatives ",
       description:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      logos: BANNER_IMAGES.slice(12, 18),
+        "",
+      logos: BANNER_IMAGES.slice(9, 15),
     },
   ];
   return (
@@ -58,7 +58,7 @@ export default function StickyVerticalCardsScroll() {
                     <p className="mt-3 text-lg md:text-xl lg:text-2xl leading-relaxed text-slate-600 dark:text-slate-300">
                       {card.description}
                     </p>
-                    <div className="mt-6 grid grid-cols-3 lg:grid-cols-6 gap-1">
+                    <div className="mt-6 grid grid-cols-3 lg:grid-cols-6 gap-1 place-items-center">
                       {card.logos.map((logo, logoIdx) => (
                         <Image
                           key={logoIdx}
