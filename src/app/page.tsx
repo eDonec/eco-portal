@@ -117,7 +117,7 @@ export default function Home() {
                   </h3>
                   <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
                     Recommandations adaptées aux entreprises et porteurs de
-                    projets, issues d’acteurs reconnus.
+                    projets, issues d&rsquo;acteurs reconnus.
                   </p>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function Home() {
                   </h3>
                   <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
                     Accès direct aux services et dispositifs pour passer à
-                    l’action rapidement.
+                    l&rsquo;action rapidement.
                   </p>
                 </div>
               </div>
@@ -156,6 +156,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <StickyVerticalCardsScroll />
 
       {/* Split paragraphs with accents */}
       <section
@@ -190,7 +192,6 @@ export default function Home() {
         </div>
       </section>
 
-      <StickyVerticalCardsScroll />
       {/* Loading line reveal for Key figures */}
       <EdgeToCenterLine />
 
