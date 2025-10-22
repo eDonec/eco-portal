@@ -22,6 +22,12 @@ import Proparco from "../cards/Proparco";
 import SER from "../cards/SER";
 import TFE from "../cards/TFE";
 import TIA from "../cards/TIA";
+import TLSC from "../cards/TLSC";
+import TD from "../cards/TD";
+import VIECard from "../cards/VIE";
+import SERV1 from "../cards/SERV1";
+import SERV2 from "../cards/SERV2";
+import SERV3 from "../cards/SERV3";
 
 export type RecommendationKey =
   | FinancingRecommendation
@@ -44,12 +50,6 @@ export const RECOMMENDATION_CONTENT: Record<
   [FinancingRecommendation.Proparco]: {
     Cards: [
       {
-        title: "L'Agence Française de Développement",
-        card: AFD,
-        logos: ["/public/7 V.svg"],
-        hasAdditionalResources: true,
-      },
-      {
         title: "Proparco",
         card: Proparco,
         logos: ["/public/4 V.svg"],
@@ -61,8 +61,8 @@ export const RECOMMENDATION_CONTENT: Record<
     Cards: [
       {
         title: "Le Service Economique Régional (SER)",
-        card: SER,
-        logos: ["/public/1 V.svg"],
+        card: SERV1,
+        logos: ["/public/1.png"],
       },
     ],
   },
@@ -70,8 +70,8 @@ export const RECOMMENDATION_CONTENT: Record<
     Cards: [
       {
         title: "Le Service Economique Régional (SER)",
-        card: SER,
-        logos: ["/public/1 V.svg"],
+        card: SERV2,
+        logos: ["/public/1.png"],
       },
       {
         title: "Ligne de crédit du Trésor pour les PME-PMI",
@@ -89,6 +89,12 @@ export const RECOMMENDATION_CONTENT: Record<
         title: "Expertise France (Groupe AFD)",
         card: EF,
         logos: ["/public/6 V.svg"],
+      },
+      {
+        title: "L'Agence Française de Développement",
+        card: AFD,
+        logos: ["/public/7 V.svg"],
+        hasAdditionalResources: true,
       },
     ],
   },
@@ -137,14 +143,15 @@ export const RECOMMENDATION_CONTENT: Record<
         logos: ["/public/3 V.svg"],
       },
       { title: "Team France Export", card: TFE, logos: ["/public/13 V.svg"] },
+      { title: "VIE", card: VIECard, logos: ["/public/16 V.svg"]}
     ],
   },
   [DirectRecommendation.SER_BF_CCEF]: {
     Cards: [
       {
         title: "Le Service Economique Régional (SER)",
-        card: SER,
-        logos: ["/public/1 V.svg"],
+        card: SERV3,
+        logos: ["/public/1.png"],
       },
       {
         title: "Business France de Tunis",
@@ -155,6 +162,12 @@ export const RECOMMENDATION_CONTENT: Record<
         title: "Les Conseillers du Commerce Extérieur de la France (CCE)",
         card: CCEF,
         logos: ["/public/9 V.png"],
+      },
+      {
+        title: "L'Agence Française de Développement",
+        card: AFD,
+        logos: ["/public/7 V.svg"],
+        hasAdditionalResources: true,
       },
     ],
   },
@@ -178,16 +191,20 @@ export const RECOMMENDATION_CONTENT: Record<
         card: FV,
         logos: ["/public/22 V.svg"],
       },
+      {
+        title: "TLS Contact",
+        card: TLSC,
+        logos: ["/public/23 V.svg"],
+      },
     ],
   },
   [DirectRecommendation.ExpertiseFranceGroupeAFD]: {
     Cards: [
       { title: "Expertise France", card: EF, logos: ["/public/6 V.svg"] },
       {
-        title: "L'Agence Française de Développement",
-        card: AFD,
-        logos: ["/public/7 V.svg"],
-        hasAdditionalResources: true,
+        title: "The Dot",
+        card: TD,
+        logos: ["/public/24 V.svg"],
       },
     ],
   },

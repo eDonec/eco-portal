@@ -18,8 +18,8 @@ const SERCard = () => {
         Le <strong>Service Economique Régional (SER)</strong> de Tunis,
         compétent pour la Tunisie et la Libye (avec un service économique à
         Tripoli), appartient au réseau international de la DG Trésor. Sous la
-        direction de l’ambassadeur / ambassadrice, il coordonne l’action de
-        diplomatie économique du poste
+        direction de l&rsquo;ambassadeur / ambassadrice, il coordonne l&rsquo;action de
+        diplomatie économique du poste.
       </p>
       <p>
         Il assure les missions régaliennes en soutien des intérêts économiques

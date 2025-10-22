@@ -22,14 +22,12 @@ export default function Home() {
           duration={800}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight gradient-text-animated drop-shadow-sm">
-            Transformez votre impact économique
+            L&rsquo;équipe économique France en Tunisie accompagne tous vos projets
           </h1>
         </Reveal>
         <Reveal effect="pop" duration={600} className="h-full">
           <p className="mt-4 text-lg md:text-xl lg:text-2xl font-semibold text-center text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Un portail simple pour orienter entreprises et porteurs de projets
-            vers les bons services et financements de l’écosystème
-            France–Tunisie.
+            Un portail simple pour orienter entreprises et porteurs de projets vers les dispositifs et financements répondant à vos besoins
           </p>
         </Reveal>
         <Reveal
@@ -42,7 +40,7 @@ export default function Home() {
             href="/eco-portal"
             className="transition-all inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-rose-500 text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg   hover:shadow-rose-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
           >
-            <span>Aller vers le questionnaire</span>
+            <span>Laissez-vous guider</span>
             <span aria-hidden className="inline-flex">
               <svg
                 className="h-5 w-5"
@@ -61,77 +59,7 @@ export default function Home() {
         </Reveal>
       </section>
 
-      {/* Split paragraphs with accents */}
-      <section
-        id="acteurs"
-        className="relative max-w-2xl lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-14"
-      >
-        <div className="grid grid-cols-1 gap-12 md:gap-28">
-          <Reveal className="max-w-4xl" effect="fade-right" duration={700}>
-            <p className="v-accent-left text-gray-800 dark:text-gray-100 text-xl sm:text-3xl lg:text-4xl font-medium leading-snug sm:leading-tight">
-              L&rsquo;Ambassade de France en Tunisie comprend plusieurs services
-              à vocation économique qui accompagnent les entreprises et les
-              pouvoirs publics : le Service Economique Régional, Business
-              France, l’Agence Française de Développement, Proparco et Expertise
-              France.
-            </p>
-          </Reveal>
-          <Reveal
-            className="max-w-4xl ml-auto"
-            effect="fade-left"
-            duration={700}
-            delay={80}
-          >
-            <p className="v-accent-right text-gray-800 dark:text-gray-100 text-xl sm:text-3xl lg:text-4xl font-medium leading-snug sm:leading-tight">
-              Le Comité Tunisie des Conseillers du Commerce Extérieur de la
-              France (CCEF), la Chambre de Commerce et d&rsquo;Industrie
-              Tuniso-Française (CCITF) et les opérateurs privés référencés
-              complètent ce dispositif. La communauté French Tech Tunis et
-              Digital Africa soutiennent plus particulièrement les startups et
-              l&rsquo;innovation.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <StickyVerticalCardsScroll />
-      {/* Loading line reveal for Key figures */}
-      <EdgeToCenterLine />
-
-      {/* Key figures (inspired) */}
-      <section className="relative max-w-6xl mx-auto px-4 py-10 mt-[-30vh]">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-          <Reveal effect="fade-up" duration={600}>
-            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-4xl font-extrabold stat-gradient">+20</div>
-              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
-                Partenaires et dispositifs
-              </p>
-            </div>
-          </Reveal>
-          <Reveal effect="fade-up" duration={600} delay={80}>
-            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-4xl font-extrabold stat-gradient">4</div>
-              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
-                Étapes de parcours guidé
-              </p>
-            </div>
-          </Reveal>
-          <Reveal effect="fade-up" duration={600} delay={160}>
-            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-4xl font-extrabold stat-gradient">
-                2 min.
-              </div>
-              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
-                Pour obtenir vos recommandations
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Feature grid (inspired) */}
-      <section className="relative max-w-6xl mx-auto px-4 pb-16">
+      <section className="relative max-w-6xl mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-3 gap-6 items-stretch">
           <Reveal effect="pop" duration={600} className="h-full">
             <GradientCard className="tilt-card h-full">
@@ -229,6 +157,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Split paragraphs with accents */}
+      <section
+        id="acteurs"
+        className="relative max-w-2xl lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 py-14"
+      >
+        <div className="grid grid-cols-1 gap-12 md:gap-28">
+          <Reveal className="max-w-4xl" effect="fade-right" duration={700}>
+            <p className="v-accent-left text-gray-800 dark:text-gray-100 text-xl sm:text-3xl lg:text-4xl font-medium leading-snug sm:leading-tight">
+              L&rsquo;Ambassade de France en Tunisie comprend plusieurs services
+              à vocation économique qui accompagnent les entreprises et les
+              pouvoirs publics : le Service Economique Régional, Business
+              France, l’Agence Française de Développement, Proparco et Expertise
+              France.
+            </p>
+          </Reveal>
+          <Reveal
+            className="max-w-4xl ml-auto"
+            effect="fade-left"
+            duration={700}
+            delay={80}
+          >
+            <p className="v-accent-right text-gray-800 dark:text-gray-100 text-xl sm:text-3xl lg:text-4xl font-medium leading-snug sm:leading-tight">
+              Le Comité Tunisie des Conseillers du Commerce Extérieur de la
+              France (CCEF), la Chambre de Commerce et d&rsquo;Industrie
+              Tuniso-Française (CCITF) et les opérateurs privés référencés
+              complètent ce dispositif. La communauté French Tech Tunis et
+              Digital Africa soutiennent plus particulièrement les startups et
+              l&rsquo;innovation.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <StickyVerticalCardsScroll />
+      {/* Loading line reveal for Key figures */}
+      <EdgeToCenterLine />
+
+      {/* Key figures (inspired) */}
+      <section className="relative max-w-6xl mx-auto px-4 py-10 mt-[-30vh]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          <Reveal effect="fade-up" duration={600}>
+            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
+              <div className="text-4xl font-extrabold stat-gradient">+20</div>
+              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
+                Partenaires et dispositifs
+              </p>
+            </div>
+          </Reveal>
+          <Reveal effect="fade-up" duration={600} delay={80}>
+            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
+              <div className="text-4xl font-extrabold stat-gradient">4</div>
+              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
+                Étapes de parcours guidé
+              </p>
+            </div>
+          </Reveal>
+          <Reveal effect="fade-up" duration={600} delay={160}>
+            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
+              <div className="text-4xl font-extrabold stat-gradient">
+                2 min.
+              </div>
+              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
+                Pour obtenir vos recommandations
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Feature grid (inspired) */}
+      
+
       {/* Additional info */}
       <section className="relative max-w-5xl mx-auto px-4 mt-12 pb-16">
         <Reveal effect="pop" duration={600} className="h-full">
@@ -250,7 +250,7 @@ export default function Home() {
             href="/eco-portal"
             className="transition-all inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-rose-500 text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg   hover:shadow-rose-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
           >
-            <span>Aller vers le questionnaire</span>
+            <span>Laissez-vous guider</span>
             <span aria-hidden className="inline-flex">
               <svg
                 className="h-5 w-5"

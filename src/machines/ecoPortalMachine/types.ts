@@ -85,17 +85,17 @@ export enum InvestAnswer {
 export enum FinancingAnswer {
   PretSecteurDurable = "Un prêt à taux préférentiel pour mon entreprise dans un secteur-clé du développement durable",
   SubventionAvance = "Une subvention ou une avance remboursable pour des études de faisabilité ou des projets démonstrateurs de technologies vertes et innovantes",
-  PretBanqueTnFr = "Un prêt auprès d’une banque tunisienne pour acquérir des biens et/ou services d’origine française ",
+  PretBanqueTnFr = "Un prêt auprès d'une banque tunisienne pour acquérir des biens et/ou services d'origine française ",
   AssuranceBpi = "Une assurance prospection, une garantie de caution, un crédit acheteur/fournisseur, ou une assurance de risque de change",
-  AppelProjetsCoopTech = "Un financement sur appel à projets via la coopération technique internationale",
+  AppelProjetsCoopTech = "Une subvention via un appel à projets dans le cadre d'un programme de coopération internationale",
 }
 
 export enum ParticulierNeedAnswer {
-  Visa = "J’ai besoin d’un visa pour un voyage d’affaire",
-  ProgrammeTechnique = "Je cherche un programme d’accompagnement technique (formation, incubation, accélération)",
+  Visa = "J'ai besoin d'un visa pour un voyage d'affaire",
+  ProgrammeTechnique = "Je cherche un programme d'accompagnement technique (formation, incubation, accélération)",
   Financement = "Je cherche des solutions de financement pour mon projet",
   Produits = "Je cherche des produits ou services français",
-  Infos = "Je recherche des informations économiques et commerciales ou sur les services à vocation économique de l’Ambassade de France",
+  Infos = "Je recherche des informations économiques et commerciales ou sur les services à vocation économique de l'Ambassade de France",
 }
 
 export enum EnterpriseNeedAnswer {
