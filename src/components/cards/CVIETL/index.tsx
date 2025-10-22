@@ -1,7 +1,4 @@
-import { useModal } from "@/components/ui/ModalContext";
-
 const CVIETLCard = () => {
-  const { openModal } = useModal();
   return (
     <>
       <p>
@@ -13,10 +10,6 @@ const CVIETLCard = () => {
       </p>
       <a
         href="http://www.linkedin.com/company/club-vie-tunisie-libye"
-        onClick={(e) => {
-          e.preventDefault();
-          openModal("http://www.linkedin.com/company/club-vie-tunisie-libye");
-        }}
         className="inline-block cursor-pointer mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm"
       >
         http://www.linkedin.com/company/club-vie-tunisie-libye

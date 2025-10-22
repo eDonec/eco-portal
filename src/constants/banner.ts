@@ -1,6 +1,6 @@
 export const BANNER_IMAGES = [
   {
-    filename: "1 V.svg",
+    filename: "1.png",
     alt: "Le Service Economique Régional (SER)",
     link: "https://www.tresor.economie.gouv.fr/Pays/TN",
   },

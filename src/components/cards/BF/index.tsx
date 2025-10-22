@@ -1,7 +1,4 @@
-import { useModal } from "@/components/ui/ModalContext";
-
 const BFCard = () => {
-  const { openModal } = useModal();
   return (
     <>
       <p>
@@ -15,7 +12,7 @@ const BFCard = () => {
         <li>Gestion du Volontariat International en Entreprise (V. I. E)</li>
         <li>Organisation de Forum d&apos;affaires en France et en Tunisie</li>
         <li>
-          Accompagnement des projets d’investissements en France –{" "}
+          Accompagnement des projets d&rsquo;investissements en France –{" "}
           <strong>Team France Invest</strong>
         </li>
         <li>
@@ -29,10 +26,6 @@ const BFCard = () => {
       </ul>
       <a
         href="https://world.businessfrance.fr/afrique-du-nord/"
-        onClick={(e) => {
-          e.preventDefault();
-          openModal("https://world.businessfrance.fr/afrique-du-nord/");
-        }}
         className="inline-block cursor-pointer mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm"
       >
         https://world.businessfrance.fr/afrique-du-nord/

@@ -1,7 +1,4 @@
-import { useModal } from "@/components/ui/ModalContext";
-
 const BPIFCard = () => {
-  const { openModal } = useModal();
   return (
     <>
       <p>
@@ -15,10 +12,6 @@ const BPIFCard = () => {
       </p>
       <a
         href="https://www.bpifrance.fr/"
-        onClick={(e) => {
-          e.preventDefault();
-          openModal("https://www.bpifrance.fr/");
-        }}
         className="inline-block cursor-pointer mt-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm"
       >
         https://www.bpifrance.fr/
