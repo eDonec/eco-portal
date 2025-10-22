@@ -16,7 +16,7 @@ export default function Header() {
             />
             <Link
               href="/"
-              className="block text-sm sm:text-lg md:text-xl font-bold leading-tight text-blue-500 drop-shadow-xl"
+              className="block text-sm sm:text-lg md:text-xl font-bold leading-tight text-primary"
             >
               Portail web d&rsquo;orientation des acteurs économiques de la
               relation franco-tunisienne
@@ -32,7 +32,7 @@ export default function Header() {
                     transitionDelay: "0ms",
                     transitionDuration: "600ms",
                   }}
-                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-base sm:text-lg font-semibold bg-transparent dark:bg-gray-800/70 border dark:border-gray-700 border-blue-600 text-blue-600 dark:text-blue-400 hover:shadow-lg dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-sm"
+                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-base sm:text-lg font-semibold bg-transparent dark:bg-gray-800/70 border dark:border-gray-700 border-primary text-primary dark:text-blue-400 hover:shadow-lg dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-sm"
                 >
                   Accueil
                 </Link>
@@ -44,9 +44,9 @@ export default function Header() {
                     transitionDelay: "0ms",
                     transitionDuration: "600ms",
                   }}
-                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-base sm:text-lg font-semibold text-white bg-blue-600 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  className="transition-all inline-flex items-center gap-2 rounded-lg px-4 py-2 text-base sm:text-lg font-semibold text-white bg-primary shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                 >
-                  Questionnaire
+                  Laissez-vous guider
                 </Link>
               </li>
             </ul>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const SERV3 = () => {
   return (
     <>
@@ -29,12 +31,14 @@ const SERV3 = () => {
         Le Service Economique Régional publie chaque semaine une revue de
         l&rsquo;actualité économique en Tunisie et en Libye accessible sur sa
         page internet :{" "}
-        <a
+        <Link
           href="https://www.tresor.economie.gouv.fr/Pays/TN"
           className="inline-block mt-2 cursor-pointer rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3.5 py-2 text-base text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           TUNISIE | Direction générale du Trésor
-        </a>
+        </Link>
       </p>
     </>
   );

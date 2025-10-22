@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const SERCard = () => {
   return (
     <>
@@ -5,8 +7,8 @@ const SERCard = () => {
         Le <strong>Service Economique Régional (SER)</strong> de Tunis,
         compétent pour la Tunisie et la Libye (avec un service économique à
         Tripoli), appartient au réseau international de la DG Trésor. Sous la
-        direction de l&rsquo;ambassadeur / ambassadrice, il coordonne l&rsquo;action de
-        diplomatie économique du poste.
+        direction de l&rsquo;ambassadeur / ambassadrice, il coordonne
+        l&rsquo;action de diplomatie économique du poste.
       </p>
       <p>
         Il assure les missions régaliennes en soutien des intérêts économiques
@@ -27,21 +29,25 @@ const SERCard = () => {
         <li>Suivi et soutien des grands projets stratégiques</li>
         <li>
           Gestion du{" "}
-          <a
+          <Link
             href="https://www.tresor.economie.gouv.fr/services-aux-entreprises/le-fasep"
             className="inline-block cursor-pointer rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-2.5 py-1.5 text-sm text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             FASEP
-          </a>{" "}
+          </Link>{" "}
           et des autres instruments financiers du Trésor
         </li>
       </ul>
-      <a
+      <Link
         href="https://www.tresor.economie.gouv.fr/Pays/TN"
         className="inline-block mt-2 cursor-pointer rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3.5 py-2 text-base text-blue-700 dark:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm max-w-full break-words"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         https://www.tresor.economie.gouv.fr/Pays/TN
-      </a>
+      </Link>
     </>
   );
 };

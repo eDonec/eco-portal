@@ -17,24 +17,32 @@ export default function Footer() {
             />
             <Link
               href="/"
-              className="block text-sm sm:text-lg md:text-xl font-bold leading-tight text-blue-500 drop-shadow-xl"
+              className="block text-sm sm:text-lg md:text-xl font-bold leading-tight text-primary"
+              target="_blank"
             >
               Portail web d&rsquo;orientation des acteurs économiques de la
               relation franco-tunisienne
             </Link>
           </div>
-          <div className="w-full lg:w-2/5 ">
-            
-          </div>
+          <div className="w-full lg:w-2/5 "></div>
         </div>
         <div className="mt-20 h-1 w-full ">
           <p className="mb-8 text-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-              © Tous droits réservés Ambassade de France à Tunis
-              <br />
-              Avec le support du Comité Tunisie des Conseillers du commerce
-              extérieur de la France.
-            </p>
-          <p className="text-center">Made with ♥ by - eDonec</p>
+            © Tous droits réservés Ambassade de France à Tunis
+            <br />
+            Avec le support du Comité Tunisie des Conseillers du commerce
+            extérieur de la France.
+          </p>
+          <div className="my-3 items-baseline gap-8 pt-8 text-center text-sm ">
+            <Link
+              className="py-[20px]"
+              href="https://edonec.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Made with ♥ by - eDonec
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

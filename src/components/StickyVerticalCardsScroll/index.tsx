@@ -44,14 +44,14 @@ export default function StickyVerticalCardsScroll() {
               >
                 <div className="relative">
                   <div
-                    className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-sky-500 via-blue-500 to-indigo-500 rounded-l-2xl"
+                    className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary via-blue-500 to-indigo-500 rounded-l-2xl"
                     aria-hidden="true"
                   />
 
                   <div className="p-6 md:p-8">
                     <h3
                       id={`svc-title-${idx}`}
-                      className="text-2xl md:text-3xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-sky-600 to-blue-600 dark:from-sky-400 dark:to-indigo-400"
+                      className="text-2xl md:text-3xl font-semibold tracking-tight bg-clip-text text-primary dark:text-blue-400"
                     >
                       {card.title}
                     </h3>
