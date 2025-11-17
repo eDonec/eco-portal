@@ -9,11 +9,18 @@ export default function Footer() {
         <div className="mx-8 flex justify-between flex-col lg:flex-row lg:items-center gap-3 mt-3">
           <div className="w-full lg:w-2/5 flex items-center gap-3 text-center justify-self-center lg:text-start lg:justify-self-start min-w-0">
             <Image
+              src={`/${encodeURIComponent("Eco-portal-logo.svg")}`}
+              alt={`Logo Eco Portal`}
+              width={200}
+              height={56}
+              className="w-12 sm:w-20 md:w-16 lg:w-20 h-auto object-contain"
+            />
+            <Image
               src={`/${encodeURIComponent("Marianne.svg")}`}
               alt={`Logo Marianne`}
               width={200}
               height={56}
-              className="h-10 sm:h-12 w-auto object-contain"
+              className="w-14 sm:w-20 md:w-24 lg:w-24 h-auto object-contain"
             />
             <Link
               href="/"
