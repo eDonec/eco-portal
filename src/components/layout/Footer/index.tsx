@@ -7,24 +7,28 @@ export default function Footer() {
       <div className="mx-auto px-4 py-4 sm:py-6">
         <div className="mb-8 h-1 w-full bg-gradient-to-r from-blue-600 via-white to-red-600 dark:from-blue-500 dark:via-transparent dark:to-rose-500 rounded-full opacity-60" />
         <div className="mx-8 flex justify-between flex-col lg:flex-row lg:items-center gap-3 mt-3">
-          <div className="w-full lg:w-2/5 flex items-center gap-3 text-center justify-self-center lg:text-start lg:justify-self-start min-w-0">
-            <Image
-              src={`/${encodeURIComponent("Eco-portal-logo.svg")}`}
-              alt={`Logo Eco Portal`}
-              width={200}
-              height={56}
-              className="w-12 sm:w-20 md:w-16 lg:w-20 h-auto object-contain"
-            />
-            <Image
-              src={`/${encodeURIComponent("Marianne.svg")}`}
-              alt={`Logo Marianne`}
-              width={200}
-              height={56}
-              className="w-14 sm:w-20 md:w-24 lg:w-24 h-auto object-contain"
-            />
+          {/* Left section: Logos and text */}
+          <div className="w-full lg:w-3/5 xl:w-2/5 flex flex-col sm:flex-row items-center gap-3 text-center md:text-start">
+            {/* Icons row */}
+            <div className="flex flex-row gap-3 items-center w-full sm:w-auto justify-center">
+              <Image
+                src={`/${encodeURIComponent("Eco-portal-logo.svg")}`}
+                alt={`Logo Eco Portal`}
+                width={200}
+                height={56}
+                className="w-12 sm:w-20 md:w-16 lg:w-20 h-auto object-contain"
+              />
+              <Image
+                src={`/${encodeURIComponent("Marianne.svg")}`}
+                alt={`Logo Marianne`}
+                width={200}
+                height={56}
+                className="w-14 sm:w-20 md:w-24 lg:w-24 h-auto object-contain"
+              />
+            </div>
             <Link
               href="/"
-              className="block text-sm sm:text-lg md:text-xl font-bold leading-tight text-primary"
+              className="block text-[0.85rem] leading-[initial] font-bold text-primary lg:ml-4 ml-0"
               target="_blank"
             >
               Portail web d&rsquo;orientation des acteurs économiques de la
