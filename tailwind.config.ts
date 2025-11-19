@@ -10,6 +10,9 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-lato)", "sans-serif"]
+      },
       fontSize: {
         // Increase small text sizes across the app
         xs: ["0.8125rem", { lineHeight: "1.25rem" }], // 13px, 20px lh
