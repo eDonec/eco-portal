@@ -166,7 +166,7 @@ export default function Home() {
       >
         <div className="grid grid-cols-1 gap-12 md:gap-28">
           <Reveal className="max-w-4xl" effect="fade-right" duration={700}>
-            <p className="v-accent-left text-gray-800 dark:text-gray-100 text-xl sm:text-3xl lg:text-4xl font-medium leading-snug sm:leading-tight">
+            <p className="v-accent-left text-gray-800 dark:text-gray-100 text-[1.7rem] leading-[3rem] font-normal pr-8">
               L&rsquo;Ambassade de France en Tunisie comprend plusieurs services
               à vocation économique qui accompagnent les entreprises et les
               pouvoirs publics : le Service Economique Régional, Business
@@ -180,7 +180,7 @@ export default function Home() {
             duration={700}
             delay={80}
           >
-            <p className="v-accent-right text-gray-800 dark:text-gray-100 text-xl sm:text-3xl lg:text-4xl font-medium leading-snug sm:leading-tight">
+            <p className="v-accent-right text-gray-800 dark:text-gray-100 text-[1.7rem] leading-[3rem] font-normal pl-8">
               Le Comité Tunisie des Conseillers du Commerce Extérieur de la
               France (CCEF), la Chambre de Commerce et d&rsquo;Industrie
               Tuniso-Française (CCITF) et les opérateurs privés référencés
