@@ -199,7 +199,7 @@ export default function Home() {
       <section className="relative max-w-6xl mx-auto px-4 py-10 mt-[-30vh]">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <Reveal effect="fade-up" duration={600}>
-            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
+            <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-[3rem] mb-3 font-extrabold stat-gradient">+20</div>
               <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
                 Partenaires et dispositifs
@@ -207,7 +207,7 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={80}>
-            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
+            <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-[3rem] mb-3 font-extrabold stat-gradient">4</div>
               <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
                 Étapes de parcours guidé
@@ -215,7 +215,7 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={160}>
-            <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
+            <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-[3rem] mb-3 font-extrabold stat-gradient">
                 2 min.
               </div>
@@ -234,7 +234,7 @@ export default function Home() {
       <section className="relative max-w-5xl mx-auto px-4 mt-12 pb-16">
         <Reveal effect="pop" duration={600} className="h-full">
           <GradientCard>
-            <p className="text-gray-800 font-semibold leading-relaxed">
+            <p className="text-gray-800 text-xl font-normal text-center leading-relaxed">
               Les entreprises en Tunisie trouveront dans ce document la
               présentation des acteurs, les solutions et les financements, mis
               en œuvre notamment dans le cadre du Plan France 2030.
