@@ -55,10 +55,10 @@ export default function StickyVerticalCardsScroll() {
                     >
                       {card.title}
                     </h3>
-                    <p className="mt-3 text-lg md:text-xl lg:text-2xl leading-relaxed text-slate-600 dark:text-slate-300">
+                    <p className="mt-3 text-[1.5rem] leading-[2.25rem] font-extralight text-slate-600 dark:text-slate-300">
                       {card.description}
                     </p>
-                    <div className="mt-6 grid grid-cols-3 lg:grid-cols-6 gap-1 place-items-center">
+                    <div className="mt-12 grid grid-cols-3 lg:grid-cols-6 gap-1 place-items-center">
                       {card.logos.map((logo, logoIdx) => (
                         <Image
                           key={logoIdx}

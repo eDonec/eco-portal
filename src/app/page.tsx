@@ -38,7 +38,7 @@ export default function Home() {
         >
           <Link
             href="/eco-portal"
-            className="transition-all inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-rose-500 text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg   hover:shadow-rose-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+            className="transition-all inline-flex items-center gap-2 rounded-xl bg-primary text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
           >
             <span>Laissez-vous guider</span>
             <span aria-hidden className="inline-flex">
@@ -66,7 +66,7 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <span
                   aria-hidden
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/10 text-blue-600"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600/10 text-blue-600 aspect-square"
                 >
                   <svg
                     viewBox="0 0 20 20"
@@ -84,7 +84,7 @@ export default function Home() {
                   <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">
                     Rapide et guidé
                   </h3>
-                  <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
+                  <p className="mt-1 text-[1.25rem] text-gray-700 dark:text-gray-300 leading-[initial]">
                     Un chemin simple en quelques questions pour cibler vos
                     besoins et vous orienter.
                   </p>
@@ -97,7 +97,7 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <span
                   aria-hidden
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-600"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600/10 text-emerald-600 aspect-square"
                 >
                   <svg
                     viewBox="0 0 20 20"
@@ -115,7 +115,7 @@ export default function Home() {
                   <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">
                     Pertinent
                   </h3>
-                  <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
+                  <p className="mt-1 text-[1.25rem] text-gray-700 dark:text-gray-300 leading-[initial]">
                     Recommandations adaptées aux entreprises et porteurs de
                     projets, issues d&rsquo;acteurs reconnus.
                   </p>
@@ -128,7 +128,7 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <span
                   aria-hidden
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-rose-600/10 text-rose-600"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-rose-600/10 text-rose-600 aspect-square"
                 >
                   <svg
                     viewBox="0 0 20 20"
@@ -146,7 +146,7 @@ export default function Home() {
                   <h3 className="text-lg md:text-xl lg:text-2xl font-semibold">
                     Mise en relation
                   </h3>
-                  <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300">
+                  <p className="mt-1 text-[1.25rem] text-gray-700 dark:text-gray-300 leading-[initial]">
                     Accès direct aux services et dispositifs pour passer à
                     l&rsquo;action rapidement.
                   </p>
@@ -200,7 +200,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <Reveal effect="fade-up" duration={600}>
             <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-4xl font-extrabold stat-gradient">+20</div>
+              <div className="text-[3rem] mb-3 font-extrabold stat-gradient">+20</div>
               <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
                 Partenaires et dispositifs
               </p>
@@ -208,7 +208,7 @@ export default function Home() {
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={80}>
             <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-4xl font-extrabold stat-gradient">4</div>
+              <div className="text-[3rem] mb-3 font-extrabold stat-gradient">4</div>
               <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
                 Étapes de parcours guidé
               </p>
@@ -216,7 +216,7 @@ export default function Home() {
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={160}>
             <div className="rounded-xl h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-4xl font-extrabold stat-gradient">
+              <div className="text-[3rem] mb-3 font-extrabold stat-gradient">
                 2 min.
               </div>
               <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
@@ -249,7 +249,7 @@ export default function Home() {
         >
           <Link
             href="/eco-portal"
-            className="transition-all inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-sky-500 to-rose-500 text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg   hover:shadow-rose-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+            className="transition-all inline-flex items-center gap-2 rounded-xl bg-primary text-white px-8 py-4 text-sm sm:text-base font-semibold shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
           >
             <span>Laissez-vous guider</span>
             <span aria-hidden className="inline-flex">
