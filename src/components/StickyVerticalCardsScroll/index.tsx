@@ -48,7 +48,7 @@ export default function StickyVerticalCardsScroll() {
                     aria-hidden="true"
                   />
 
-                  <div className="p-6 md:p-8">
+                  <div className="p-6 md:p-8 glass-panel">
                     <h3
                       id={`svc-title-${idx}`}
                       className="text-2xl md:text-3xl font-semibold tracking-tight bg-clip-text text-primary dark:text-blue-400"

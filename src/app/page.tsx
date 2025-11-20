@@ -200,7 +200,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <Reveal effect="fade-up" duration={600}>
             <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-[3rem] mb-3 font-extrabold stat-gradient">+20</div>
+              <div className="text-[3rem] mb-3 font-extrabold text-primary">+20</div>
               <p className="mt-1 text-xl font-extrabold text-gray-600 dark:text-gray-300">
                 Partenaires et dispositifs
               </p>
@@ -208,7 +208,7 @@ export default function Home() {
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={80}>
             <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-[3rem] mb-3 font-extrabold stat-gradient">4</div>
+              <div className="text-[3rem] mb-3 font-extrabold text-primary">4</div>
               <p className="mt-1 text-xl font-extrabold text-gray-600 dark:text-gray-300">
                 Étapes de parcours guidé
               </p>
@@ -216,7 +216,7 @@ export default function Home() {
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={160}>
             <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-[3rem] mb-3 font-extrabold stat-gradient">
+              <div className="text-[3rem] mb-3 font-extrabold text-primary">
                 2 min.
               </div>
               <p className="mt-1 text-xl font-extrabold text-gray-600 dark:text-gray-300">
