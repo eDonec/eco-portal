@@ -43,7 +43,7 @@ export default function Header() {
                     transitionDelay: "0ms",
                     transitionDuration: "600ms",
                   }}
-                  className="transition-all inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-base sm:text-lg font-semibold bg-transparent dark:bg-gray-800/70 border dark:border-gray-700 border-primary text-primary dark:text-blue-400 hover:shadow-lg dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-sm w-full sm:w-auto"
+                  className="transition-all inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-[0.85rem] font-bold bg-transparent dark:bg-gray-800/70 border dark:border-gray-700 border-primary text-primary dark:text-blue-400 hover:shadow-lg dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 shadow-sm w-full sm:w-auto"
                 >
                   Accueil
                 </Link>
@@ -55,7 +55,7 @@ export default function Header() {
                     transitionDelay: "0ms",
                     transitionDuration: "600ms",
                   }}
-                  className="transition-all inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-base sm:text-lg font-semibold text-white bg-primary shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 w-full sm:w-auto"
+                  className="transition-all inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-[0.85rem] font-bold text-white bg-primary shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 w-full sm:w-auto"
                 >
                   Laissez-vous guider
                 </Link>
