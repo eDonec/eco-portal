@@ -201,7 +201,7 @@ export default function Home() {
           <Reveal effect="fade-up" duration={600}>
             <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-[3rem] mb-3 font-extrabold stat-gradient">+20</div>
-              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
+              <p className="mt-1 text-xl font-extrabold text-gray-600 dark:text-gray-300">
                 Partenaires et dispositifs
               </p>
             </div>
@@ -209,7 +209,7 @@ export default function Home() {
           <Reveal effect="fade-up" duration={600} delay={80}>
             <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
               <div className="text-[3rem] mb-3 font-extrabold stat-gradient">4</div>
-              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
+              <p className="mt-1 text-xl font-extrabold text-gray-600 dark:text-gray-300">
                 Étapes de parcours guidé
               </p>
             </div>
@@ -219,7 +219,7 @@ export default function Home() {
               <div className="text-[3rem] mb-3 font-extrabold stat-gradient">
                 2 min.
               </div>
-              <p className="mt-1 text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
+              <p className="mt-1 text-xl font-extrabold text-gray-600 dark:text-gray-300">
                 Pour obtenir vos recommandations
               </p>
             </div>
