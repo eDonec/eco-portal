@@ -4,6 +4,7 @@ import StickyVerticalCardsScroll from "@/components/StickyVerticalCardsScroll";
 import { GradientCard } from "@/components/ui/GradientCard";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Accueil",
@@ -22,12 +23,14 @@ export default function Home() {
           duration={800}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight gradient-text-animated drop-shadow-sm">
-            L&rsquo;équipe économique France en Tunisie accompagne tous vos projets
+            L&rsquo;équipe économique France en Tunisie accompagne tous vos
+            projets
           </h1>
         </Reveal>
         <Reveal effect="pop" duration={600} className="h-full">
           <p className="mt-4 text-lg md:text-xl lg:text-2xl font-semibold text-center text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Un portail simple pour orienter entreprises et porteurs de projets vers les dispositifs et financements répondant à vos besoins
+            Un portail simple pour orienter entreprises et porteurs de projets
+            vers les dispositifs et financements répondant à vos besoins
           </p>
         </Reveal>
         <Reveal
@@ -57,6 +60,20 @@ export default function Home() {
             </span>
           </Link>
         </Reveal>
+        <Reveal
+          className="mt-6 flex justify-center"
+          effect="pop"
+          duration={500}
+          delay={100}
+        >
+          <Image
+            src={`/${encodeURIComponent("Eco-portal-logo.svg")}`}
+            alt={`Logo Eco Portal`}
+            width={400}
+            height={200}
+            className="w-28 sm:w-32 md:w-36 lg:w-48 h-auto object-contain"
+          />
+        </Reveal>
       </section>
 
       <section className="relative max-w-6xl mx-auto px-4 py-16">
@@ -85,7 +102,7 @@ export default function Home() {
                     Rapide et guidé
                   </h3>
                   <p className="mt-1 text-[1.25rem] text-gray-700 dark:text-gray-300 leading-[initial]">
-                    Un chemin simple en quelques questions pour cibler vos
+                    Un chemin simple en moins de 2mn pour cibler vos
                     besoins et vous orienter.
                   </p>
                 </div>
@@ -170,8 +187,8 @@ export default function Home() {
               L&rsquo;Ambassade de France en Tunisie comprend plusieurs services
               à vocation économique qui accompagnent les entreprises et les
               pouvoirs publics : le Service Economique Régional, Business
-              France, l&rsquo;Agence Française de Développement, Proparco et Expertise
-              France.
+              France, l&rsquo;Agence Française de Développement, Proparco et
+              Expertise France.
             </p>
           </Reveal>
           <Reveal
@@ -200,7 +217,9 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <Reveal effect="fade-up" duration={600}>
             <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-[3rem] mb-3 font-extrabold text-primary">+20</div>
+              <div className="text-[3rem] mb-3 font-extrabold text-primary">
+                +20
+              </div>
               <p className="mt-1 text-xl font-extrabold text-gray-600 dark:text-gray-300">
                 Partenaires et dispositifs
               </p>
@@ -208,7 +227,9 @@ export default function Home() {
           </Reveal>
           <Reveal effect="fade-up" duration={600} delay={80}>
             <div className="rounded-xl gradient-ring glass-panel h-full border border-gray-200 dark:border-gray-800 px-6 py-6 bg-white/70 dark:bg-gray-900/40 tilt-card flex flex-col items-center justify-center">
-              <div className="text-[3rem] mb-3 font-extrabold text-primary">4</div>
+              <div className="text-[3rem] mb-3 font-extrabold text-primary">
+                4
+              </div>
               <p className="mt-1 text-xl font-extrabold text-gray-600 dark:text-gray-300">
                 Étapes de parcours guidé
               </p>
@@ -228,7 +249,6 @@ export default function Home() {
       </section>
 
       {/* Feature grid (inspired) */}
-      
 
       {/* Additional info */}
       <section className="relative max-w-5xl mx-auto px-4 mt-12 pb-16">
