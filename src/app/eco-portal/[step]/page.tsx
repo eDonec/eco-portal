@@ -7,7 +7,7 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "Questionnaire",
   description:
-    "Questionnaire du Portail Économique par étapes, avec navigation par l’historique du navigateur.",
+    "Questionnaire du Portail Économique par étapes, avec navigation par l'historique du navigateur.",
 };
 
 const allowedSteps = new Set(["status", "need", "financing", "invest"]);
