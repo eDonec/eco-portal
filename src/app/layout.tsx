@@ -47,6 +47,19 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "tu47qxoi5k");
           `}
         </Script>
+        {/* Google Tag */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-48MKRFJ5ZM"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-48MKRFJ5ZM');",
+          }}
+        ></Script>
       </head>
       <body className={`${lato.variable} antialiased`}>
         <ModalProvider>
