@@ -38,7 +38,7 @@ export default function StickyVerticalCardsScroll() {
             return (
               <article
                 key={`sticky-card-${idx}`}
-                className="mx-auto w-11/12 sticky top-24 md:top-32 rounded-2xl border border-black/10 dark:border-white/10 bg-sky-50 dark:bg-neutral-900/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
+                className="mx-auto w-11/12 top-24 md:top-32 rounded-2xl border border-black/10 dark:border-white/10 bg-sky-50 dark:bg-neutral-900/60 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden transition duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl"
                 style={{ zIndex: cards.length + idx }}
                 aria-labelledby={`svc-title-${idx}`}
               >
