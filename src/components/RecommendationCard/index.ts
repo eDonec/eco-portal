@@ -28,6 +28,7 @@ import VIECard from "../cards/VIE";
 import SERV1 from "../cards/SERV1";
 import SERV2 from "../cards/SERV2";
 import SERV3 from "../cards/SERV3";
+import CCITF from "../cards/CCITF";
 
 export type RecommendationKey =
   | FinancingRecommendation
@@ -143,7 +144,9 @@ export const RECOMMENDATION_CONTENT: Record<
         logos: ["/public/3 V.svg"],
       },
       { title: "Team France Export", card: TFE, logos: ["/public/13 V.svg"] },
-      { title: "VIE", card: VIECard, logos: ["/public/16 V.svg"]}
+      { title: "VIE", card: VIECard, logos: ["/public/16 V.svg"]},
+      { title: "CCITF", card: CCITF, logos: ["/public/8 V.svg"]},
+
     ],
   },
   [DirectRecommendation.SER_BF_CCEF]: {
@@ -167,6 +170,11 @@ export const RECOMMENDATION_CONTENT: Record<
         title: "L'Agence Française de Développement",
         card: AFD,
         logos: ["/public/7 V.svg"],
+      },
+      {
+        title: "CCITF",
+        card: CCITF,
+        logos: ["/public/8 V.svg"],
         hasAdditionalResources: false,
       },
     ],
