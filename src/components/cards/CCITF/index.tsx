@@ -4,7 +4,7 @@ const CCITFCard = () => {
   return (
     <>
       <p>
-        La Chambre de Commerce et d&apos;Industrie Tuniso-Française (CCITF) form
+        La Chambre de Commerce et d&apos;Industrie Tuniso-Française (CCITF) forme
         un réseau de plus de <strong>2500 entreprises adhérentes</strong> et
         appartient au{" "}
         <strong>
